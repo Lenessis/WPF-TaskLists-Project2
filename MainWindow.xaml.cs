@@ -26,6 +26,15 @@ namespace TasksList
         }
 
 
+        public void SetActiveControl(UserControl control)
+        {
+            ListsContent.Visibility = Visibility.Collapsed;
+            CategoryContent.Visibility = Visibility.Collapsed;
+
+            control.Visibility = Visibility.Visible;
+        }
+
+
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Normal)
@@ -39,5 +48,14 @@ namespace TasksList
             Close();
         }
 
+        private void ShowLists_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveControl(ListsContent);
+        }
+
+        private void ShowCategories_Click(object sender, RoutedEventArgs e)
+        {
+            SetActiveControl(CategoryContent);
+        }
     }
 }

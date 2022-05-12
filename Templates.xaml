@@ -214,4 +214,38 @@
 
     </Style>
 
+    <!-- // Nagłówki sekcji // -->
+
+    <Style x:Key="TitlesStyle"
+           TargetType="Label">
+
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+
+    </Style>
+
+    <!-- // Listboxy // -->
+
+    <Style x:Key="ListboxStyle"
+           TargetType="ListBox">
+        <Setter Property="Background" Value="#18181c"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+
+    <!-- // Buttony // -->
+
+    <Style x:Key="ButtonStyle"
+           TargetType="Button">
+        <Setter Property="Margin" Value="15"/>
+        <Setter Property="Padding" Value="10,5"/>
+        
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderThickness" Value="0"/>
+
+    </Style>
+
+
 </ResourceDictionary>

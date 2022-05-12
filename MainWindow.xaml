@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TasksList"
+        xmlns:local="clr-namespace:TasksList" 
+        xmlns:localCategory="clr-namespace:TasksList.Categories" 
+        xmlns:localLists="clr-namespace:TasksList.Lists"
         mc:Ignorable="d"
          Title="Listy zadań" 
         Height="720" 
@@ -55,8 +57,10 @@
 
                 <!-- // Menu - listy // -->
 
-                <MenuItem Header="Listy"                          
-                     Template="{StaticResource Menu_Template}" >
+                <MenuItem Header="Listy"
+                          Name ="ListsNavBtn"
+                          Template="{StaticResource Menu_Template}" 
+                          Click="ShowLists_Click">
 
                     <MenuItem.Icon>
                         <Image 
@@ -69,7 +73,9 @@
                 <!-- // Menu - kategorie // -->
 
                 <MenuItem Header="Kategorie"
-                          Template="{StaticResource Menu_Template}">
+                          Name="CategoryNavBtn"
+                          Template="{StaticResource Menu_Template}"
+                          Click="ShowCategories_Click">
 
                     <MenuItem.Icon>
                         <Image 
@@ -91,9 +97,10 @@
                 Style="{StaticResource CloseBtnStyle}"
                 Click="CloseButton_Click"/> -->
 
-        <ContentControl Grid.Column="1">
-
-        </ContentControl>
+        <Grid Grid.Column="1" x:Name="Container">
+            <localLists:ListPage x:Name="ListsContent"></localLists:ListPage>
+            <localCategory:CategoryPage x:Name="CategoryContent" Visibility="Collapsed"></localCategory:CategoryPage>
+        </Grid>
 
     </Grid>
 </Window>
