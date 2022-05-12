@@ -1,0 +1,100 @@
+﻿<Window x:Class="TasksList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TasksList"
+        mc:Ignorable="d"
+         Title="Listy zadań" 
+        Height="720" 
+        Width="1280"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- // Background grid // -->
+
+    <Grid Background="#18181c">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- // Menu // -->
+
+        <StackPanel Grid.Column="0"
+                    Background="#2e2e36"
+                    Width="250"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left">
+
+            <!-- Logo/Slogan/Nazwa aplikacji -->
+
+            <Grid Height="50"
+                  VerticalAlignment="Top"
+                  Margin="0,30,0,0">
+
+                <TextBlock Text="Zarządzaj zadaniami!"
+                           Foreground="#FFFFFF"
+                           FontSize="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+            </Grid>
+
+            <!-- // Kafelki menu //-->
+
+            <Menu Background="Transparent"
+                  Margin="0,30,0,0"
+                  Height="auto">
+
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+
+                <!-- // Menu - listy // -->
+
+                <MenuItem Header="Listy"                          
+                     Template="{StaticResource Menu_Template}" >
+
+                    <MenuItem.Icon>
+                        <Image 
+                            Source="Images/lists.png"
+                            Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+                <!-- // Menu - kategorie // -->
+
+                <MenuItem Header="Kategorie"
+                          Template="{StaticResource Menu_Template}">
+
+                    <MenuItem.Icon>
+                        <Image 
+                            Source="Images/category.png"
+                            Stretch="None"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+
+            </Menu>
+
+        </StackPanel>
+
+        <!-- <Button x:Name="MaxMinWindowButton"
+                 Style="{StaticResource MaxBtnStyle}"
+                 Click="MaximizeButton_Click"
+                />
+        <Button x:Name="CloseWindowButton"
+                Style="{StaticResource CloseBtnStyle}"
+                Click="CloseButton_Click"/> -->
+
+        <ContentControl Grid.Column="1">
+
+        </ContentControl>
+
+    </Grid>
+</Window>
+

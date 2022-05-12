@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Categories\Add_EditCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Categories\CategoryMainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Lists\ListDisplay.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Lists\ListMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Lists\NewList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Lists\NewTask.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Lists\RemoveList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Templates.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
