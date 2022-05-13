@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TasksList.list"
         mc:Ignorable="d"
         Title="NewTask" Height="400" Width="400">
-    <Grid>
+    <Grid Background="#18181c">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -16,13 +16,14 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0"
+                  Background="#2e2e36">
                 <Label FontSize="24"
                    FontWeight="Bold"
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center"
                    FontStyle="Italic"
-                   Foreground="DarkBlue">Dodaj/edytuj zadanie</Label>
+                   Foreground="#FFFFFF">Dodaj/edytuj zadanie</Label>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
@@ -32,11 +33,13 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Label FontSize="17" 
-                   VerticalAlignment="Center">Nazwa</Label>
+                   VerticalAlignment="Center"
+                       Foreground="#FFFFFF">Nazwa</Label>
             </Grid>
             <Grid Grid.Column="1">
                 <TextBox Margin="4"
-                         VerticalContentAlignment="Center"></TextBox>
+                         VerticalContentAlignment="Center"
+                         Background="LightGray"></TextBox>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
@@ -46,14 +49,16 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Label FontSize="17" 
-                   VerticalAlignment="Center">Stopień pilności</Label>
+                   VerticalAlignment="Center"
+                   Foreground="#FFFFFF">Stopień pilności</Label>
             </Grid>
             <Grid Grid.Column="1">
                 <ComboBox Grid.Row="0"
                           Grid.Column="1"
                           SelectionChanged="ComboBox_SelectionChanged"
                           Margin=" 4px"
-                          SelectedValuePath="Content">
+                          SelectedValuePath="Content"
+                          Background="LightGray">
                     <ComboBoxItem>Opcja</ComboBoxItem>
                     <ComboBoxItem>Opcja2</ComboBoxItem>
                     <ComboBoxItem>Opcja3</ComboBoxItem>
@@ -67,10 +72,12 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Label FontSize="17" 
-                   VerticalAlignment="Center">Termin</Label>
+                   VerticalAlignment="Center"
+                   Foreground="#FFFFFF">Termin</Label>
             </Grid>
             <Grid Grid.Column="1">
-                <DatePicker Margin="4"
+                <DatePicker Margin="4 5 4 5"
+                            Background="LightGray"
                          VerticalContentAlignment="Center"></DatePicker>
             </Grid>
         </Grid>
@@ -80,14 +87,17 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Label FontSize="17">Opis</Label>
+                <Label FontSize="17"
+                       Foreground="#FFFFFF">Opis</Label>
             </Grid>
             <Grid Grid.Column="1">
                 <TextBox Margin="4"
+                         Background="LightGray"
                          VerticalContentAlignment="Center"></TextBox>
             </Grid>
         </Grid>
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="5" 
+              Background="#2e2e36">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
