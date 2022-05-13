@@ -5,10 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TasksList.Category"
         mc:Ignorable="d"
-        Title="Add_EditCategory" Height="720" Width="1280">
-    <Grid>
+        Title="Add_EditCategory" Height="400" Width="400">
+    <Grid Background="#18181c">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#2e2e36">
+            <Grid Grid.Row="0">
+                <Label FontSize="24"
+                   FontWeight="Bold"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontStyle="Italic"
+                   Foreground="#FFFFFF">Dodaj/edytuj kategorię</Label>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Label FontSize="17" 
+                   VerticalAlignment="Center"
+                   Foreground="#FFFFFF">Nazwa</Label>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox Margin="5"
+                         Background="LightGray"
+                         VerticalContentAlignment="Center"></TextBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4" Background="#2e2e36">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button FontSize="18"
+                        Margin="4"
+                        Background="#E2593E"
+                        Foreground="White"
+                        FontStyle="Italic">Anuluj</Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button FontSize="18"
+                        Margin="4"
+                        FontStyle="Italic">Dodaj</Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
