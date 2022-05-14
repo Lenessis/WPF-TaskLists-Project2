@@ -91,7 +91,7 @@
 
     <ImageBrush x:Key="max_mo"
                 ImageSource="Images/maximize_window_32.png"
-                Stretch="None" />
+                Stretch="Fill" />
 
     <Style x:Key="MaxBtnStyle"
            TargetType="{x:Type Button}">
@@ -125,7 +125,9 @@
                             <Setter Property="Background"
                                     TargetName="border"
                                     Value="{StaticResource max_mo}" />
-
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
                         </Trigger>
 
                         <Trigger Property="IsPressed"
@@ -134,7 +136,9 @@
                             <Setter Property="Background"
                                     TargetName="border"
                                     Value="{StaticResource max_mo}" />
-
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
                         </Trigger>
 
                     </ControlTemplate.Triggers>
@@ -145,6 +149,76 @@
 
         </Setter>
 
+    </Style>
+
+
+    <!--// Minimalize App Button Style //-->
+
+    <ImageBrush x:Key="mini_def"
+                ImageSource="Images/minimalize_32.png"
+                Stretch="None" />
+
+    <ImageBrush x:Key="mini_mo"
+                ImageSource="Images/minimalize_32.png"
+                Stretch="Fill" />
+
+    <Style x:Key="MiniBtnStyle"
+           TargetType="{x:Type Button}">
+
+        <Setter Property="Height"
+                Value="35" />
+        <Setter Property="Width"
+                Value="35" />
+        <Setter Property="HorizontalAlignment"
+                Value="Right" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="0,20,102,0" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <Border x:Name="border"
+                            BorderThickness="0"
+                            Background="{StaticResource mini_def}" />
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource mini_mo}" />
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
+
+                        </Trigger>
+
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+
+                            <Setter Property="Background"
+                                    TargetName="border"
+                                    Value="{StaticResource mini_mo}" />
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
 
     </Style>
 
@@ -157,7 +231,7 @@
 
     <ImageBrush x:Key="close_mo"
                 ImageSource="Images/close_window_32.png"
-                Stretch="None" />
+                Stretch="Fill" />
 
     <Style x:Key="CloseBtnStyle"
            TargetType="{x:Type Button}">
@@ -191,6 +265,9 @@
                             <Setter Property="Background"
                                     TargetName="border"
                                     Value="{StaticResource close_mo}" />
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
 
                         </Trigger>
 
@@ -200,6 +277,9 @@
                             <Setter Property="Background"
                                     TargetName="border"
                                     Value="{StaticResource close_mo}" />
+                            <Setter Property="Cursor"
+                                    TargetName="border"
+                                    Value="Hand"/>
 
                         </Trigger>
 
@@ -240,7 +320,7 @@
     <Style x:Key="ButtonStyle"
            TargetType="Button">
         <Setter Property="Margin" Value="15"/>
-        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Padding" Value="15,8"/>
         
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="BorderThickness" Value="0"/>

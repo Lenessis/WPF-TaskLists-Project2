@@ -10,7 +10,15 @@
          Title="Listy zadań" 
         Height="720" 
         Width="1280"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseLeftButtonDown="DragAndMoveWindow"
+        
+        >
+    
+
+    <!-- WindowStyle="None" -->
 
     <!-- // Background grid // -->
 
@@ -89,17 +97,25 @@
 
         </StackPanel>
 
-        <!-- <Button x:Name="MaxMinWindowButton"
-                 Style="{StaticResource MaxBtnStyle}"
-                 Click="MaximizeButton_Click"
-                />
-        <Button x:Name="CloseWindowButton"
-                Style="{StaticResource CloseBtnStyle}"
-                Click="CloseButton_Click"/> -->
+        
 
         <Grid Grid.Column="1" x:Name="Container">
             <localLists:ListPage x:Name="ListsContent"></localLists:ListPage>
             <localCategory:CategoryPage x:Name="CategoryContent" Visibility="Collapsed"></localCategory:CategoryPage>
+
+            <Button x:Name="MinimalizeWindowButton"
+                 Style="{StaticResource MiniBtnStyle}"
+                 Click="MinimalizeButton_Click"
+                />
+            
+           <Button x:Name="MaxMinWindowButton"
+                 Style="{StaticResource MaxBtnStyle}"
+                 Click="MaximizeButton_Click"
+                /> 
+            <Button x:Name="CloseWindowButton"
+                Style="{StaticResource CloseBtnStyle}"
+                Click="CloseButton_Click"/>
+
         </Grid>
 
     </Grid>

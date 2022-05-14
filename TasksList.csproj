@@ -7,4 +7,26 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\add.png" />
+    <None Remove="Images\category.png" />
+    <None Remove="Images\close_window_32.png" />
+    <None Remove="Images\close_window_64.png" />
+    <None Remove="Images\lists.png" />
+    <None Remove="Images\maximize_window_32.png" />
+    <None Remove="Images\maximize_window_64.png" />
+    <None Remove="Images\minimalize_32.png" />
+    <None Remove="Images\minimize_window_32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\category.png" />
+    <Resource Include="Images\close_window_32.png" />
+    <Resource Include="Images\lists.png" />
+    <Resource Include="Images\maximize_window_32.png" />
+    <Resource Include="Images\minimalize_32.png" />
+    <Resource Include="Images\minimize_window_32.png" />
+  </ItemGroup>
+
 </Project>

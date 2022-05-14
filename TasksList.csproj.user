@@ -18,16 +18,10 @@
     <Page Update="Categories\Add_EditCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Categories\CategoryMainPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Categories\CategoryPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\ListDisplay.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Lists\ListMain.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\ListPage.xaml">
@@ -37,9 +31,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\NewTask.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Lists\RemoveList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

@@ -25,6 +25,7 @@ namespace TasksList
             InitializeComponent();
         }
 
+        // -- Navigations Buttons -- //
 
         public void SetActiveControl(UserControl control)
         {
@@ -32,20 +33,6 @@ namespace TasksList
             CategoryContent.Visibility = Visibility.Collapsed;
 
             control.Visibility = Visibility.Visible;
-        }
-
-
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (WindowState == WindowState.Normal)
-                WindowState = WindowState.Maximized;
-            else if (WindowState == WindowState.Maximized)
-                WindowState = WindowState.Normal;
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void ShowLists_Click(object sender, RoutedEventArgs e)
@@ -56,6 +43,36 @@ namespace TasksList
         private void ShowCategories_Click(object sender, RoutedEventArgs e)
         {
             SetActiveControl(CategoryContent);
+        }
+
+        // -- Moving window feature -- //
+
+        private void DragAndMoveWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        // -- Minimalized, Maximize, Close Buttons -- //
+
+        private void MinimalizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                WindowState = WindowState.Maximized;
+
+
+            else if (WindowState == WindowState.Maximized)
+                WindowState = WindowState.Normal;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
