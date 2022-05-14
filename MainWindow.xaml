@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TasksList" 
-        xmlns:localCategory="clr-namespace:TasksList.Categories" 
-        xmlns:localLists="clr-namespace:TasksList.Lists"
         mc:Ignorable="d"
          Title="Listy zadań" 
         Height="720" 
@@ -97,11 +95,10 @@
 
         </StackPanel>
 
-        
 
         <Grid Grid.Column="1" x:Name="Container">
-            <localLists:ListPage x:Name="ListsContent"></localLists:ListPage>
-            <localCategory:CategoryPage x:Name="CategoryContent" Visibility="Collapsed"></localCategory:CategoryPage>
+            
+            <Frame x:Name="FrameContent" NavigationUIVisibility="Hidden" />
 
             <Button x:Name="MinimalizeWindowButton"
                  Style="{StaticResource MiniBtnStyle}"

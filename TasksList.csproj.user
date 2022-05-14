@@ -7,10 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Categories\CategoryPage.xaml.cs">
+    <Compile Update="Categories\CategoryMainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Lists\ListPage.xaml.cs">
+    <Compile Update="Lists\ListsMainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,13 +18,13 @@
     <Page Update="Categories\Add_EditCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Categories\CategoryPage.xaml">
+    <Page Update="Categories\CategoryMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\ListDisplay.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Lists\ListPage.xaml">
+    <Page Update="Lists\ListsMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\NewList.xaml">

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TasksList.Categories
+namespace TasksList.Lists
 {
     /// <summary>
-    /// Logika interakcji dla klasy CategoryPage.xaml
+    /// Logika interakcji dla klasy ListsMainPage.xaml
     /// </summary>
-    public partial class CategoryPage : UserControl
+    public partial class ListsMainPage : Page
     {
-        public CategoryPage()
+        public ListsMainPage()
         {
             InitializeComponent();
         }

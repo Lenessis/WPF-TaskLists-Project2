@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TasksList.Lists;
+using TasksList.Categories;
 
 namespace TasksList
 {
@@ -20,29 +22,29 @@ namespace TasksList
     /// </summary>
     public partial class MainWindow : Window
     {
+        Page listsMainPage = new ListsMainPage();
+        Page categoriesMainPage;
+
         public MainWindow()
         {
             InitializeComponent();
+            FrameContent.Content = listsMainPage.Content;
         }
 
         // -- Navigations Buttons -- //
 
-        public void SetActiveControl(UserControl control)
-        {
-            ListsContent.Visibility = Visibility.Collapsed;
-            CategoryContent.Visibility = Visibility.Collapsed;
-
-            control.Visibility = Visibility.Visible;
-        }
-
         private void ShowLists_Click(object sender, RoutedEventArgs e)
         {
-            SetActiveControl(ListsContent);
+            if (listsMainPage == null)
+                listsMainPage = new ListsMainPage();
+            FrameContent.Content = listsMainPage.Content;
         }
 
         private void ShowCategories_Click(object sender, RoutedEventArgs e)
         {
-            SetActiveControl(CategoryContent);
+            if (categoriesMainPage == null)
+                categoriesMainPage = new CategoryMainPage();
+            FrameContent.Content = categoriesMainPage.Content;
         }
 
         // -- Moving window feature -- //
@@ -74,5 +76,7 @@ namespace TasksList
         {
             Close();
         }
+
+        // ------------------------ //
     }
 }
