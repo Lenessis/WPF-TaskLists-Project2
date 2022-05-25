@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TasksList.Models
 {
-    class ListOfTasks
+    class TasksListModel
     {
-        public List<Task> list { get; set; }
-        public Category category { get; set; }
+        public List<TaskModel> list { get; set; }
+        public CategoryModel category { get; set; }
         public int urgentState { get; set; }
 
         /* --- urgentState ---
@@ -20,21 +20,21 @@ namespace TasksList.Models
          * 
         */
 
-        public ListOfTasks () 
+        public TasksListModel () 
         {
-            list = new List<Task>();
+            list = new List<TaskModel>();
         }
 
-        public ListOfTasks(Category category, int urgent)
+        public TasksListModel(CategoryModel category, int urgent)
         {
-            list = new List<Task>();
+            list = new List<TaskModel>();
             this.category = category;
             this.urgentState = urgent;
         }
-        public ListOfTasks(string category, int urgent)
+        public TasksListModel(string category, int urgent)
         {
-            list = new List<Task>();
-            this.category = new Category(category);
+            list = new List<TaskModel>();
+            this.category = new CategoryModel(category);
             this.urgentState = urgent;
         }
     }

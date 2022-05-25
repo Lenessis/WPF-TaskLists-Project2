@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Dom\**" />
+    <EmbeddedResource Remove="Data\Dom\**" />
+    <None Remove="Data\Dom\**" />
+    <Page Remove="Data\Dom\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Images\add.png" />
     <None Remove="Images\category.png" />
     <None Remove="Images\close_window_32.png" />
@@ -27,6 +34,10 @@
     <Resource Include="Images\maximize_window_32.png" />
     <Resource Include="Images\minimalize_32.png" />
     <Resource Include="Images\minimize_window_32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

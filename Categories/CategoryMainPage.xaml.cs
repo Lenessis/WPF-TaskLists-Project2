@@ -12,17 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TasksList.Models;
 
 namespace TasksList.Categories
 {
-    /// <summary>
-    /// Logika interakcji dla klasy CategoryMainPage.xaml
-    /// </summary>
+    /* 
+     * Używa folderu Data, w którym poszczególnymi katalogami są kategorie
+     */
+
     public partial class CategoryMainPage : Page
-    {
+    {   
+        public List<CategoryModel> categories; // lista kategorii
+
+
         public CategoryMainPage()
         {
             InitializeComponent();
+            categories = CategoryModel.GetCatecoriesFromData();
+        }
+
+        private void ChangeCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

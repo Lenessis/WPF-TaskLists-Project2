@@ -19,7 +19,9 @@
                Style="{StaticResource TitlesStyle}"/>
 
         <ListBox Grid.Row="1" 
-                 Style="{StaticResource ListboxStyle}"/>
+                 Style="{StaticResource ListboxStyle}"
+                 Name ="CategoryListBox"
+                 SelectionChanged="ChangeCategory_SelectionChanged"/>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

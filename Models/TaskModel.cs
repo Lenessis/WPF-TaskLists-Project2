@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TasksList.Models
 {
-    class Task
+    class TaskModel
     {
         public string name { get; set; }
         public string description { get; set; }
         public DateTime date { get; set; }
         public int urgentState { get; set; }
-        public List<Task> subtasks { get; set; }
+        public List<TaskModel> subtasks { get; set; }
 
         /* --- urgentState ---
          * 
@@ -22,18 +22,18 @@ namespace TasksList.Models
          * 
         */
 
-        public Task () 
+        public TaskModel () 
         {
-            subtasks = new List<Task>();
+            subtasks = new List<TaskModel>();
         }
 
-        public Task (string name, string desc, DateTime date, int urgent) 
+        public TaskModel (string name, string desc, DateTime date, int urgent) 
         {
             this.name = name;
             this.description = desc;
             this.date = date;
             this.urgentState = urgent;
-            subtasks = new List<Task>();
+            subtasks = new List<TaskModel>();
         }
 
         /* --- METHODS --- */
