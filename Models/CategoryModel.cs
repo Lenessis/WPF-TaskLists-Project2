@@ -59,6 +59,12 @@ namespace TasksList.Models
                 Directory.Delete(MainWindow.dataPath + "/" + name);
         }
 
+        public void EditCategory(string newName)
+        {
+            Directory.Move(MainWindow.dataPath + "/" + name, MainWindow.dataPath + "/" + newName);
+            name = newName;
+        }
+
         public override string ToString()
         {
             return name;

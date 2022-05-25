@@ -33,26 +33,64 @@ namespace TasksList.Categories
             CategoryListBox.ItemsSource = categories;
         }
 
-        private void PageLoaded(object sender, RoutedEventArgs e)
-        {           
-            CategoryListBox.ItemsSource = categories;
-        }
-
         private void AddCategory_ClickButton(object sender, RoutedEventArgs e)
         {
             Add_EditCategory diag = new Add_EditCategory();
             diag.Title = "Dodaj kategorię";
+            diag.WindowTitle.Content = "Dodaj kategorię";
             diag.ConfirmButton.Content = "Dodaj";
 
             if (diag.ShowDialog() == true)
                 categories.Add(new CategoryModel(diag.CategoryNameBox.Text));
         }
 
-        private void ChangeCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EditCategory_ClickButton(object sender, RoutedEventArgs e)
         {
+            if(CategoryListBox.SelectedIndex >= 0)
+            {
+                Add_EditCategory diag = new Add_EditCategory();
+                diag.Title = "Edytuj kategorię";
+                diag.WindowTitle.Content = "Edytuj kategorię";
+                diag.ConfirmButton.Content = "Edytuj";
 
+                CategoryModel temp = new CategoryModel();
+                temp = (CategoryModel)CategoryListBox.SelectedItem;
+
+                diag.CategoryNameBox.Text = temp.name;
+
+                if(diag.ShowDialog() == true)
+                {
+                    categories[CategoryListBox.SelectedIndex].EditCategory(diag.CategoryNameBox.Text);
+                    CategoryListBox.Items.Refresh();
+                }
+            }
         }
 
-        
+        private void DeleteCategory_ClickButton(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                // categories.RemoveAt(CategoryListBox.SelectedIndex);
+                CategoryModel item = (CategoryModel)CategoryListBox.SelectedItem;
+                categories.Remove(item);
+                item.DeleteCategory();
+            }
+        }
+
+        private void ChangeCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CategoryListBox.SelectedIndex >= 0)
+            {
+                DeleteButton.IsEnabled = true;
+                EditButton.IsEnabled = true;
+            }
+            else
+            {
+                DeleteButton.IsEnabled = false;
+                EditButton.IsEnabled = false;
+            }
+
+        }
+  
     }
 }
