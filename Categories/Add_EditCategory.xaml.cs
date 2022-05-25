@@ -23,5 +23,21 @@ namespace TasksList.Category
         {
             InitializeComponent();
         }
+
+        private void Confirm_ClickButton(object sender, RoutedEventArgs e)
+        {
+            if (CategoryNameBox.Text.Length <= 0)
+            {
+                MessageBox.Show("Musisz podać nazwę kategorii!", "Ostrzeżenie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CategoryNameBox.Focus();
+            }
+            else
+                DialogResult = true;
+        }
+
+        private void CancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

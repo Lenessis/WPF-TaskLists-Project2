@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TasksList.Category;
 using TasksList.Models;
 
 namespace TasksList.Categories
@@ -31,9 +32,21 @@ namespace TasksList.Categories
             categories = CategoryModel.GetCatecoriesFromData();
         }
 
+        private void AddCategory_ClickButton(object sender, RoutedEventArgs e)
+        {
+            Add_EditCategory diag = new Add_EditCategory();
+            diag.Title = "Dodaj kategorię";
+            diag.ConfirmButton.Content = "Dodaj";
+
+            if (diag.ShowDialog() == true)
+                categories.Add(new CategoryModel(diag.CategoryNameBox.Text));
+        }
+
         private void ChangeCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        
     }
 }

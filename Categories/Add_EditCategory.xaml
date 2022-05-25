@@ -36,7 +36,8 @@
             <Grid Grid.Column="1">
                 <TextBox Margin="5"
                          Background="LightGray"
-                         VerticalContentAlignment="Center"></TextBox>
+                         VerticalContentAlignment="Center"
+                         Name="CategoryNameBox"></TextBox>
             </Grid>
         </Grid>
         <Grid Grid.Row="4" Background="#2e2e36">
@@ -50,12 +51,16 @@
                         Margin="4"
                         Background="#E2593E"
                         Foreground="White"
-                        FontStyle="Italic">Anuluj</Button>
+                        FontStyle="Italic"
+                        Name="Cancel"
+                        Click="CancelButton">Anuluj</Button>
             </Grid>
             <Grid Grid.Column="2">
                 <Button FontSize="18"
                         Margin="4"
-                        FontStyle="Italic">Dodaj</Button>
+                        FontStyle="Italic"
+                        Name ="ConfirmButton"
+                        Click="Confirm_ClickButton">Dodaj</Button>
             </Grid>
         </Grid>
     </Grid>
