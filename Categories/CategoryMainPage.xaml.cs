@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +24,18 @@ namespace TasksList.Categories
 
     public partial class CategoryMainPage : Page
     {   
-        public List<CategoryModel> categories; // lista kategorii
-
+       // public List<CategoryModel> categories; // lista kategorii
+        public Collection<CategoryModel> categories { get; } = CategoryModel.GetCatecoriesFromData(); // lista kategorii
 
         public CategoryMainPage()
         {
             InitializeComponent();
-            categories = CategoryModel.GetCatecoriesFromData();
+            CategoryListBox.ItemsSource = categories;
+        }
+
+        private void PageLoaded(object sender, RoutedEventArgs e)
+        {           
+            CategoryListBox.ItemsSource = categories;
         }
 
         private void AddCategory_ClickButton(object sender, RoutedEventArgs e)

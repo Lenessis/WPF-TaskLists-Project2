@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,11 @@ namespace TasksList.Models
 
         // -- Pobieranie listy katalogów (folderów) -- //
 
-        public static List<CategoryModel> GetCatecoriesFromData()
+        public static Collection<CategoryModel> GetCatecoriesFromData()
         {
             // -- Jeśli nie ma folderów lista kategorii wyniesie 0
 
-            List<CategoryModel> categories = new List<CategoryModel>();
+            Collection<CategoryModel> categories = new ObservableCollection<CategoryModel>();           
 
             foreach (var item in Directory.GetDirectories(MainWindow.dataPath).ToList())
                 categories.Add(new CategoryModel(item.Replace(MainWindow.dataPath, "")));
@@ -56,6 +57,11 @@ namespace TasksList.Models
         {
             //if(Directory.Exists(MainWindow.dataPath + "/" + name) && Directory.GetFiles(MainWindow.dataPath + "/" + name).ToList()==null)
                 Directory.Delete(MainWindow.dataPath + "/" + name);
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
 
     }
