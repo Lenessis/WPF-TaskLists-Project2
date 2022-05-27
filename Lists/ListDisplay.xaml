@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TasksList.list"
         mc:Ignorable="d"
         Title="ListDisplay" Height="720" Width="1280">
-    <Grid>
+    <Grid Background="#2e2e36">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -30,7 +30,7 @@
                    FontWeight="Bold"
                    HorizontalContentAlignment="Center"
                    FontStyle="Italic"
-                   Foreground="DarkBlue">Nazwa listy</Label>
+                   Foreground="White">Nazwa listy</Label>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
@@ -38,10 +38,10 @@
                    FontWeight="Bold"
                    HorizontalContentAlignment="Center"
                    FontStyle="Italic"
-                   Foreground="DarkBlue">Kategoria</Label>
+                   Foreground="White">Kategoria</Label>
         </Grid>
         <Grid Grid.Row="2">
-            <TreeView Name="treeView"
+            <TreeView Background="#18181c" Name="treeView"
                       Margin="5">
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding Items}">
