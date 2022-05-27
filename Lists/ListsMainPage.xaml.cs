@@ -39,6 +39,7 @@ namespace TasksList.Lists
             if(dial.ShowDialog()==true)
             {
                 tasksLists.Add(new TasksListModel(dial.nameOfList.Text));
+
             }
         }
 
@@ -59,12 +60,32 @@ namespace TasksList.Lists
 
         private void EditCategory_ClickButton(object sender, RoutedEventArgs e)
         {
+            if (TasksListListBox.SelectedIndex >= 0)
+            {
+                NewList diag = new NewList();
+                diag.Title = "Edytuj listę";
 
+                TasksListModel temp = new TasksListModel();
+                temp = (TasksListModel)TasksListListBox.SelectedItem;
+
+                diag.nameOfList.Text = temp.name;
+
+                if (diag.ShowDialog() == true)
+                {
+                    tasksLists[TasksListListBox.SelectedIndex].EditTaskList(diag.nameOfList.Text);
+                    TasksListListBox.Items.Refresh();
+                }
+            }
         }
 
         private void RemoveTasksList_ClickButton(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                TasksListModel item = (TasksListModel)TasksListListBox.SelectedItem;
+                tasksLists.Remove(item);
+                item.DeleteTaskList();
+            }
         }
     }
 }

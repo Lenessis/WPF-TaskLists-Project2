@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TasksList.Models
 {
@@ -34,6 +35,7 @@ namespace TasksList.Models
             //this.category = category;
            // this.urgentState = urgent;
             this.name = name;
+            AddTasksList();
         }
 
         public static Collection<TasksListModel> GetTasksListsFromData()
@@ -42,28 +44,33 @@ namespace TasksList.Models
 
             foreach (var item in Directory.GetFiles(MainWindow.filePath).ToList())
                tasksListModels.Add(new TasksListModel(item));
+            
 
             return tasksListModels;
         }
 
-        public void AddTasksList(string name)
+        private void AddTasksList()
         {
-            using (StreamWriter sw = File.CreateText(MainWindow.filePath + "/" + name + ".txt"))
+            try
             {
-                sw.WriteLine("Hello");
-                sw.WriteLine("And");
-                sw.WriteLine("Welcome");
+                TextWriter tw = new StreamWriter(MainWindow.filePath + "/" + name+".txt", true);
+                tw.WriteLine(name);
+                tw.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
         public void DeleteTaskList()
         {
-            File.Delete(MainWindow.filePath + "/" + name);
+            File.Delete(MainWindow.filePath + "/" + name+".txt");
         }
 
         public void EditTaskList(string newName)
         {
-            File.Move(MainWindow.filePath + "/" + name, MainWindow.filePath + "/" + newName);
+            File.Move(MainWindow.filePath + "/" + name+".txt", MainWindow.filePath + "/" + newName+".txt");
         }
 
         public override string ToString()
