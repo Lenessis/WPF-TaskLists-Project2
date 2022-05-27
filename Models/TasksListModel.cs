@@ -43,7 +43,7 @@ namespace TasksList.Models
             Collection<TasksListModel> tasksListModels = new ObservableCollection<TasksListModel>();
 
             foreach (var item in Directory.GetFiles(MainWindow.filePath).ToList())
-               tasksListModels.Add(new TasksListModel(item));
+               tasksListModels.Add(new TasksListModel(item.Replace(MainWindow.filePath, "")));
             
 
             return tasksListModels;
@@ -71,6 +71,7 @@ namespace TasksList.Models
         public void EditTaskList(string newName)
         {
             File.Move(MainWindow.filePath + "/" + name+".txt", MainWindow.filePath + "/" + newName+".txt");
+            name = newName;
         }
 
         public override string ToString()
