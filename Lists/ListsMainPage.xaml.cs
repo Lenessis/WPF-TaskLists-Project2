@@ -33,14 +33,13 @@ namespace TasksList.Lists
 
         private void AddTaskList_ClickButton(object sender, RoutedEventArgs e)
         {
-            NewList dial = new NewList();
-            dial.Title = "Dodaj listę";
+            NewList diag = new NewList();
+            diag.HeaderTitle.Content = "Dodaj listę";
+            diag.ListAcceptButton.Content = "Dodaj";
 
-            if(dial.ShowDialog()==true)
-            {
-                tasksLists.Add(new TasksListModel(dial.nameOfList.Text));
+            if (diag.ShowDialog()==true)
+                tasksLists.Add(new TasksListModel(diag.nameOfList.Text));
 
-            }
         }
 
         private void ChangeTasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,7 +62,8 @@ namespace TasksList.Lists
             if (TasksListListBox.SelectedIndex >= 0)
             {
                 NewList diag = new NewList();
-                diag.Title = "Edytuj listę";
+                diag.HeaderTitle.Content = "Edytuj listę";
+                diag.ListAcceptButton.Content = "Edytuj";
 
                 TasksListModel temp = new TasksListModel();
                 temp = (TasksListModel)TasksListListBox.SelectedItem;

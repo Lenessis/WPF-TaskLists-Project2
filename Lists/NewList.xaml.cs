@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TasksList.Models;
 
 namespace TasksList.list
 {
@@ -19,10 +21,15 @@ namespace TasksList.list
     /// </summary>
     public partial class NewList : Window
     {
+
+        public Collection<CategoryModel> categories { get; } = CategoryModel.GetCatecoriesFromData(); // lista kategorii
+
         public NewList()
         {
             InitializeComponent();
+            CategoryComboBox.ItemsSource = categories;
         }
+
         //to do obslugi kategorii
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
