@@ -29,11 +29,11 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Image Source="{Binding Image}" Height="200" Width="150"/>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                                 <TextBlock  Text="{Binding name}" FontSize="16" Foreground="White"/>
                                 <TextBlock  Text="{Binding category}" FontSize="16" Foreground="White"/>
+                                
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -46,22 +46,32 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0"
                   >
+                
+                
                 <Button Background="#E2593E"
                         Foreground="White"
                         Style="{StaticResource ButtonStyle}"
                         Click="RemoveTasksList_ClickButton"
                         Name="RemoveButton">Usuń</Button>
             </Grid>
-            <Grid Grid.Column="2"
+
+            <Button Grid.Column="2"
+                    Content="Wybierz"
+                    Name="SelectListBtn"
+                    Click="DisplayList_Click"
+                    Style="{StaticResource ButtonStyle}"/>
+
+            <Grid Grid.Column="3"
                   >
                 <Button Style="{StaticResource ButtonStyle}"
                         Click="EditCategory_ClickButton"
                         Name="EditButton">Edytuj</Button>
             </Grid>
-            <Grid Grid.Column="3"
+            <Grid Grid.Column="4"
                   >
                 <Button Style="{StaticResource ButtonStyle}" Click="AddTaskList_ClickButton">Nowa</Button>
             </Grid>

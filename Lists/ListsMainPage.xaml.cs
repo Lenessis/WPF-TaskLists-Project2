@@ -50,14 +50,16 @@ namespace TasksList.Lists
                 diag.HeaderTitle.Content = "Edytuj listę";
                 diag.ListAcceptButton.Content = "Edytuj";
 
-                TasksListModel temp = new TasksListModel();
-                temp = (TasksListModel)TasksListListBox.SelectedItem;
+                TasksListModel temp = (TasksListModel)TasksListListBox.SelectedItem;
 
                 diag.nameOfList.Text = temp.name;
+                /*diag.CategoryComboBox.SelectedItem = temp.category;
+                  diag.CategoryComboBox.SelectedValue = temp.category.ToString();*/
+                diag.CategoryComboBox.SelectedIndex = 0; // -- inaczej jak po indeksie nie chce działać, nawet nie chce wyciągnąć indeksu elementu
 
                 if (diag.ShowDialog() == true)
                 {
-                    tasksLists[TasksListListBox.SelectedIndex].EditTaskList(diag.nameOfList.Text);
+                    tasksLists[TasksListListBox.SelectedIndex].EditTaskList(diag.nameOfList.Text, (CategoryModel) diag.CategoryComboBox.SelectedItem);
                     TasksListListBox.Items.Refresh();
                 }
             }
@@ -79,12 +81,26 @@ namespace TasksList.Lists
             {
                 RemoveButton.IsEnabled = true;
                 EditButton.IsEnabled = true;
+                SelectListBtn.IsEnabled = true;
             }
             else
             {
                 RemoveButton.IsEnabled = false;
                 EditButton.IsEnabled = false;
+                SelectListBtn.IsEnabled = false;
             }
+            
+
+        }
+
+        private void DisplayList_Click(object sender, RoutedEventArgs e)
+        {
+            ListDisplay diag = new ListDisplay();
+            TasksListModel temp = (TasksListModel) TasksListListBox.SelectedItem;
+            diag.ListName.Content = temp.name;
+            diag.CategoryName.Content = temp.category;
+
+            diag.Show();
 
         }
     }

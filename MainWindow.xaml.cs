@@ -25,7 +25,8 @@ namespace TasksList
         public static string dataPath = "../../../Data/"; // -- Ścieżka dostępu do danych
 
         Page listsMainPage = new ListsMainPage();
-        Page categoriesMainPage;
+        Page categoriesMainPage;        
+        
 
         public MainWindow()
         {

@@ -59,7 +59,8 @@
                           SelectionChanged="ComboBox_SelectionChanged"
                           Background="LightGray"
                           Margin=" 4px"
-                          SelectedValuePath="Content">
+                          SelectedValuePath="{Binding Path=categories, Mode=TwoWay}"
+                          DisplayMemberPath="name">
                     <!--<ComboBoxItem>Opcja</ComboBoxItem>
                     <ComboBoxItem>Opcja2</ComboBoxItem>
                     <ComboBoxItem>Opcja3</ComboBoxItem>-->

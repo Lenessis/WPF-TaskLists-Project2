@@ -75,7 +75,6 @@ namespace TasksList.Models
             try
             {
                 TextWriter tw = new StreamWriter($"{MainWindow.dataPath}/{category}/{name}.txt", true);
-                tw.WriteLine(name);
                 tw.Close();
             }
             catch (Exception e)
@@ -89,10 +88,11 @@ namespace TasksList.Models
             File.Delete($"{MainWindow.dataPath}/{category}/{name}.txt");
         }
 
-        public void EditTaskList(string newName)
+        public void EditTaskList(string newName, CategoryModel newCategory)
         {
-            File.Move($"{MainWindow.dataPath}/{category}/{name}.txt", $"{MainWindow.dataPath}/{category}/{newName}.txt");
+            File.Move($"{MainWindow.dataPath}/{category}/{name}.txt", $"{MainWindow.dataPath}/{newCategory}/{newName}.txt");
             name = newName;
+            category = newCategory;
         }
 
         public override string ToString()
