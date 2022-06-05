@@ -18,9 +18,6 @@ using TasksList.Models;
 
 namespace TasksList.Lists
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ListsMainPage.xaml
-    /// </summary>
     public partial class ListsMainPage : Page
     {
         public Collection<TasksListModel> tasksLists { get; } = TasksListModel.GetTasksListsFromData();
@@ -88,9 +85,7 @@ namespace TasksList.Lists
                 RemoveButton.IsEnabled = false;
                 EditButton.IsEnabled = false;
                 SelectListBtn.IsEnabled = false;
-            }
-            
-
+            }           
         }
 
         private void DisplayList_Click(object sender, RoutedEventArgs e)

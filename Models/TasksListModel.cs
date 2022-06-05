@@ -13,39 +13,27 @@ namespace TasksList.Models
     {
         public List<TaskModel> list { get; set; }
         public string name { get; set; }
-        public CategoryModel category { get; set; } //--> na razie bez kateorii
-        public int urgentState { get; set; }
+        public CategoryModel category { get; set; } 
+        // -- rezygnujemy z urgent state, bo nie ma go gdzie zapisać i jest bez sensu
 
-        /* --- urgentState ---
-         * 
-         *  // 1 -- low
-         *  // 2 -- medium
-         *  // 3 -- high
-         * 
-        */
+        /* --- CONSTRUCTORS --- */
 
         public TasksListModel() 
         {
             list = new List<TaskModel>();
+            name = "";
         }
 
-        public TasksListModel(string name /*CategoryModel category, int urgent*/)
-        {
-            list = new List<TaskModel>();
-            //this.category = category;
-           // this.urgentState = urgent;
-            this.name = name;
-            AddTasksList();
-        }
 
-        public TasksListModel(string name, CategoryModel category/*, int urgent*/)
+        public TasksListModel(string name, CategoryModel category)
         {
             list = new List<TaskModel>();
             this.category = category;
-            // this.urgentState = urgent;
             this.name = name;
             AddTasksList();
         }
+
+        /* --- METHODS --- */
 
         public static Collection<TasksListModel> GetTasksListsFromData()
         {
