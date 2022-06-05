@@ -23,10 +23,26 @@ namespace TasksList.list
         {
             InitializeComponent();
         }
-
+        //to do obslugi kategorii
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ExitButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Add_ClickButton(object sender, RoutedEventArgs e)
+        {
+            if (nameOfList.Text.Length <= 0)
+            {
+                MessageBox.Show("Musisz podać nazwę kategorii!", "Ostrzeżenie", MessageBoxButton.OK, MessageBoxImage.Warning);
+                nameOfList.Focus();
+            }
+            else
+                DialogResult = true;
         }
     }
 }

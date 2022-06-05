@@ -36,6 +36,7 @@
             </Grid>
             <Grid Grid.Column="1">
                 <TextBox Margin="4"
+                         Name ="nameOfList"
                          Background="LightGray"
                          VerticalContentAlignment="Center"></TextBox>
             </Grid>
@@ -74,13 +75,15 @@
                         Margin="4"
                         Background="#E2593E"
                         Foreground="White"
-                        FontStyle="Italic">Anuluj</Button>
+                        FontStyle="Italic"
+                        Click="ExitButton">Anuluj</Button>
             </Grid>
             <Grid Grid.Column="2">
                 <Image Source="Images/add.png" Stretch="None"/>
                 <Button FontSize="18"
                         Margin="4"
-                        FontStyle="Italic">Dodaj</Button>
+                        FontStyle="Italic"
+                        Click="Add_ClickButton">Dodaj</Button>
             </Grid>
         </Grid>
     </Grid>

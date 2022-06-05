@@ -23,6 +23,7 @@ namespace TasksList
     public partial class MainWindow : Window
     {
         public static string dataPath = "../../../Data/"; // -- Ścieżka dostępu do danych
+        public static string filePath = "../../../File/"; // -- Ścieżka dostępu do plikow
 
         Page listsMainPage = new ListsMainPage();
         Page categoriesMainPage;

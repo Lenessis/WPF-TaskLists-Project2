@@ -18,8 +18,10 @@
             <Label Style="{StaticResource TitlesStyle}">Listy</Label>
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox Name="listOfallTaskList"
-                     Style="{StaticResource ListboxStyle}">
+            <ListBox Name="TasksListListBox"
+                     Style="{StaticResource ListboxStyle}"
+                     SelectionChanged="ChangeTasksList_SelectionChanged"               
+                 >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="3"/>
@@ -30,7 +32,7 @@
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <Image Source="{Binding Image}" Height="200" Width="150"/>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Name}" FontSize="16"/>
+                                <TextBlock  Text="{Binding name}" FontSize="16"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -48,15 +50,19 @@
                   >
                 <Button Background="#E2593E"
                         Foreground="White"
-                        Style="{StaticResource ButtonStyle}">Usuń</Button>
+                        Style="{StaticResource ButtonStyle}"
+                        Click="RemoveTasksList_ClickButton"
+                        Name="RemoveButton">Usuń</Button>
             </Grid>
             <Grid Grid.Column="2"
                   >
-                <Button Style="{StaticResource ButtonStyle}">Edytuj</Button>
+                <Button Style="{StaticResource ButtonStyle}"
+                        Click="EditCategory_ClickButton"
+                        Name="EditButton">Edytuj</Button>
             </Grid>
             <Grid Grid.Column="3"
                   >
-                <Button Style="{StaticResource ButtonStyle}">Nowa</Button>
+                <Button Style="{StaticResource ButtonStyle}" Click="AddTaskList_ClickButton">Nowa</Button>
             </Grid>
         </Grid>
     </Grid>
