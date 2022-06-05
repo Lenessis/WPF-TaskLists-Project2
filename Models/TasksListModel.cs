@@ -24,7 +24,7 @@ namespace TasksList.Models
          * 
         */
 
-        public TasksListModel () 
+        public TasksListModel() 
         {
             list = new List<TaskModel>();
         }
@@ -42,8 +42,8 @@ namespace TasksList.Models
         {
             Collection<TasksListModel> tasksListModels = new ObservableCollection<TasksListModel>();
 
-            foreach (var item in Directory.GetFiles(MainWindow.filePath).ToList())
-               tasksListModels.Add(new TasksListModel(item.Replace(MainWindow.filePath, "")));
+            foreach (var item in Directory.GetFiles(MainWindow.dataPath).ToList())
+               tasksListModels.Add(new TasksListModel(item.Replace(MainWindow.dataPath, "")));
             
 
             return tasksListModels;
@@ -53,7 +53,7 @@ namespace TasksList.Models
         {
             try
             {
-                TextWriter tw = new StreamWriter(MainWindow.filePath + "/" + name+".txt", true);
+                TextWriter tw = new StreamWriter(MainWindow.dataPath + "/" + name+".txt", true);
                 tw.WriteLine(name);
                 tw.Close();
             }
@@ -65,12 +65,12 @@ namespace TasksList.Models
 
         public void DeleteTaskList()
         {
-            File.Delete(MainWindow.filePath + "/" + name+".txt");
+            File.Delete(MainWindow.dataPath + "/" + name+".txt");
         }
 
         public void EditTaskList(string newName)
         {
-            File.Move(MainWindow.filePath + "/" + name+".txt", MainWindow.filePath + "/" + newName+".txt");
+            File.Move(MainWindow.dataPath + "/" + name+".txt", MainWindow.dataPath + "/" + newName+".txt");
             name = newName;
         }
 

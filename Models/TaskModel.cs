@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TasksList.Models
 {
@@ -10,8 +7,9 @@ namespace TasksList.Models
     {
         public string name { get; set; }
         public string description { get; set; }
-        public DateTime date { get; set; }
+        public DateTime? date { get; set; }
         public int urgentState { get; set; }
+        public bool done { get; set; }
         public List<TaskModel> subtasks { get; set; }
 
         /* --- urgentState ---
@@ -22,17 +20,28 @@ namespace TasksList.Models
          * 
         */
 
-        public TaskModel () 
+        public TaskModel() 
         {
+            this.done = false;
             subtasks = new List<TaskModel>();
         }
 
-        public TaskModel (string name, string desc, DateTime date, int urgent) 
+        public TaskModel(string name, string desc, int urgent) // -- bez daty
+        {
+            this.name = name;
+            this.description = desc;
+            this.urgentState = urgent;
+            this.done = false;
+            subtasks = new List<TaskModel>();
+        }
+
+        public TaskModel (string name, string desc, DateTime date, int urgent) // -- z data
         {
             this.name = name;
             this.description = desc;
             this.date = date;
             this.urgentState = urgent;
+            this.done = false;
             subtasks = new List<TaskModel>();
         }
 
