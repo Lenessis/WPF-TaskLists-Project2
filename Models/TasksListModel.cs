@@ -13,8 +13,8 @@ namespace TasksList.Models
     {
         public List<TaskModel> list { get; set; }
         public string name { get; set; }
-       // public CategoryModel category { get; set; } --> na razie bez kateorii
-       // public int urgentState { get; set; }
+        public CategoryModel category { get; set; } //--> na razie bez kateorii
+        public int urgentState { get; set; }
 
         /* --- urgentState ---
          * 
@@ -38,13 +38,34 @@ namespace TasksList.Models
             AddTasksList();
         }
 
+        public TasksListModel(string name, CategoryModel category/*, int urgent*/)
+        {
+            list = new List<TaskModel>();
+            this.category = category;
+            // this.urgentState = urgent;
+            this.name = name;
+            AddTasksList();
+        }
+
         public static Collection<TasksListModel> GetTasksListsFromData()
         {
             Collection<TasksListModel> tasksListModels = new ObservableCollection<TasksListModel>();
 
-            foreach (var item in Directory.GetFiles(MainWindow.dataPath).ToList())
-               tasksListModels.Add(new TasksListModel(item.Replace(MainWindow.dataPath, "")));
-            
+            List<string> dataFolder = Directory.GetDirectories(MainWindow.dataPath).ToList();
+
+            foreach(var categoryFolder in dataFolder) // -- odczytanie wszystkich folderów w Data
+            {
+               if(Directory.GetFiles($"{categoryFolder}").ToList() != null) // -- warunek sprawdzajacy czy folder nie jest pusty
+                    foreach (var file in Directory.GetFiles($"{categoryFolder}").ToList()) // -- odczytanie folderu konkretnej kategorii
+                    {
+                        string listName = file.Replace($"{categoryFolder}\\", ""); // -- wycięcie ścieżki dostępu z nazwy
+                        listName = listName.Replace(".txt", ""); // --  wycięcie rozszerzenia z nazwy
+                        CategoryModel cat = new CategoryModel(); // -- stworzenie pustej zmiennej kategorii ( nie dodaje to nowej kategorii do folderu)
+                        cat.name = categoryFolder.Replace($"{MainWindow.dataPath}", ""); // -- podmianka nazwy kategorii 
+
+                        tasksListModels.Add(new TasksListModel(listName, cat)); // -- dodanie nowego elementu do listy
+                    }              
+            }
 
             return tasksListModels;
         }
@@ -53,7 +74,7 @@ namespace TasksList.Models
         {
             try
             {
-                TextWriter tw = new StreamWriter(MainWindow.dataPath + "/" + name+".txt", true);
+                TextWriter tw = new StreamWriter($"{MainWindow.dataPath}/{category}/{name}.txt", true);
                 tw.WriteLine(name);
                 tw.Close();
             }
@@ -65,18 +86,18 @@ namespace TasksList.Models
 
         public void DeleteTaskList()
         {
-            File.Delete(MainWindow.dataPath + "/" + name+".txt");
+            File.Delete($"{MainWindow.dataPath}/{category}/{name}.txt");
         }
 
         public void EditTaskList(string newName)
         {
-            File.Move(MainWindow.dataPath + "/" + name+".txt", MainWindow.dataPath + "/" + newName+".txt");
+            File.Move($"{MainWindow.dataPath}/{category}/{name}.txt", $"{MainWindow.dataPath}/{category}/{newName}.txt");
             name = newName;
         }
 
         public override string ToString()
         {
-            return name; //+ urgentState + list;
+            return name;
         }
     }
 }

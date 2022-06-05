@@ -38,22 +38,7 @@ namespace TasksList.Lists
             diag.ListAcceptButton.Content = "Dodaj";
 
             if (diag.ShowDialog()==true)
-                tasksLists.Add(new TasksListModel(diag.nameOfList.Text));
-
-        }
-
-        private void ChangeTasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (TasksListListBox.SelectedIndex >= 0)
-            {
-                RemoveButton.IsEnabled = true;
-                EditButton.IsEnabled = true;
-            }
-            else
-            {
-                RemoveButton.IsEnabled = false;
-                EditButton.IsEnabled = false;
-            }
+                tasksLists.Add(new TasksListModel(diag.nameOfList.Text, (CategoryModel) diag.CategoryComboBox.SelectedItem));
 
         }
 
@@ -86,6 +71,21 @@ namespace TasksList.Lists
                 tasksLists.Remove(item);
                 item.DeleteTaskList();
             }
+        }
+
+        private void ChangeTasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TasksListListBox.SelectedIndex >= 0)
+            {
+                RemoveButton.IsEnabled = true;
+                EditButton.IsEnabled = true;
+            }
+            else
+            {
+                RemoveButton.IsEnabled = false;
+                EditButton.IsEnabled = false;
+            }
+
         }
     }
 }
