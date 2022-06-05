@@ -87,5 +87,92 @@ namespace TasksList.Models
         {
             return name;
         }
+
+        public void ReadFile()
+        {
+            StreamReader file = new StreamReader($"{MainWindow.dataPath}/{category}\\{name}.txt");
+            string line;
+
+            // -- dopóki plik będzie mieał linie
+            while((line = file.ReadLine()) != null)
+            {
+                string[] taskInformation = line.Split(";"); // -- rozdzielenie linii średnikami i wpisanie zmiennych do tablicy
+                TaskModel newTask = new TaskModel();
+
+                newTask.name =          taskInformation[0];
+                newTask.done =          Convert.ToBoolean(taskInformation[1]);
+                newTask.urgentState =   Convert.ToInt32(taskInformation[2]);
+
+                if (taskInformation[3] != "") // -- jesli data została ustawiona
+                {
+                    // -- trzeba ją przeczytać i przekształcić na typ DateTime
+                    char[] signs = new char[] { '.', ' ', ':' };
+                    string[] tempDate = taskInformation[3].Split(signs);
+                    newTask.date = new DateTime( 
+                        Convert.ToInt32(tempDate[0]),
+                        Convert.ToInt32(tempDate[1]),
+                        Convert.ToInt32(tempDate[2]),
+                        Convert.ToInt32(tempDate[3]),
+                        Convert.ToInt32(tempDate[4]),
+                        Convert.ToInt32(tempDate[5])
+                        );
+                }
+                newTask.description = taskInformation[4];
+                int listCount = Convert.ToInt32(taskInformation[5]); // -- ilość zadań na liście podzadań 
+
+                if ( listCount != 0) // -- jeśli sa podzadania
+                {
+                    for (int i = 0; i < listCount; i++) // -- przeczyta tyle kolejnych linii ile wynosiła liczba zapisana przy zadaniu
+                    {
+                        line = file.ReadLine(); // -- przeczytaj kolejną linię
+                        string[] subTaskInformation = line.Split(";");
+                        TaskModel newSubTask = new TaskModel();
+
+                        newSubTask.name = subTaskInformation[0];
+                        newSubTask.done = Convert.ToBoolean(subTaskInformation[1]);
+                        newSubTask.urgentState = Convert.ToInt32(subTaskInformation[2]);
+
+                        if (subTaskInformation[3] != "")
+                        {
+                            char[] signs = new char[] { '.', ' ', ':' };
+                            string[] tempDate = subTaskInformation[3].Split(signs);
+                            newSubTask.date = new DateTime(
+                                Convert.ToInt32(tempDate[0]),
+                                Convert.ToInt32(tempDate[1]),
+                                Convert.ToInt32(tempDate[2]),
+                                Convert.ToInt32(tempDate[3]),
+                                Convert.ToInt32(tempDate[4]),
+                                Convert.ToInt32(tempDate[5])
+                                );
+                        }
+                        newSubTask.description = subTaskInformation[4];
+
+                        // -- nie ma tutaj tworzenia kolejnych podzadań
+                        newTask.subtasks.Add(newSubTask); // -- dodawanie do listy podzadań w zadaniu głównym
+                    }
+                }
+                list.Add(newTask); // -- dodaj nowe zadanie do listy Tasków
+            }
+            file.Close();
+        }
+
+        public void WriteFile()
+        {
+            StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/{category}\\{name}.txt");
+
+            foreach (var task in list)
+            {
+                file.WriteLine(task.ToFileString());
+                if(task.subtasks.Count>0)
+                {
+                    foreach (var subtask in task.subtasks)
+                    {
+                        file.WriteLine(subtask.ToFileString());
+                    }
+                }
+            }
+            file.Close();
+
+        }
     }
 }

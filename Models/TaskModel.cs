@@ -46,5 +46,12 @@ namespace TasksList.Models
         }
 
         /* --- METHODS --- */
+
+        public String ToFileString()
+        {
+            string dateFormat = (date.HasValue == true) ? date.ToString() : "";
+            return $"{name};{done};{urgentState};{dateFormat};{description};{subtasks.Count}";
+        }
+
     }
 }
