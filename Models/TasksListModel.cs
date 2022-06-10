@@ -90,7 +90,6 @@ namespace TasksList.Models
 
         public void ReadFile()
         {
-            MessageBox.Show(name);
             StreamReader file = new StreamReader($"{MainWindow.dataPath}/{category}\\{name}.txt");
             string line;
 
@@ -110,9 +109,9 @@ namespace TasksList.Models
                     char[] signs = new char[] { '.', ' ', ':' };
                     string[] tempDate = taskInformation[3].Split(signs);
                     newTask.date = new DateTime( 
-                        Convert.ToInt32(tempDate[0]),
-                        Convert.ToInt32(tempDate[1]),
                         Convert.ToInt32(tempDate[2]),
+                        Convert.ToInt32(tempDate[1]),
+                        Convert.ToInt32(tempDate[0]),
                         Convert.ToInt32(tempDate[3]),
                         Convert.ToInt32(tempDate[4]),
                         Convert.ToInt32(tempDate[5])
@@ -146,6 +145,7 @@ namespace TasksList.Models
                                 Convert.ToInt32(tempDate[5])
                                 );
                         }
+                        //newSubTask.date = subTaskInformation[3].ToString();
                         newSubTask.description = subTaskInformation[4];
 
                         // -- nie ma tutaj tworzenia kolejnych podzadań
@@ -160,15 +160,20 @@ namespace TasksList.Models
         public void WriteFile()
         {
             
-            StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/{category}\\{name}.txt");
+            //MessageBox.Show(category);
+            MessageBox.Show($"{MainWindow.dataPath}/{category}\\{name}.txt");
+            StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/Kappa\\sss.txt");
             foreach (var task in list)
-            {
-                file.WriteLine(task.ToFileString());
+            {   
                 MessageBox.Show(task.ToFileString());
+                file.WriteLine(task.ToFileString());
+                
                 if (task.subtasks.Count>0)
                 {
+                    MessageBox.Show("done");
                     foreach (var subtask in task.subtasks)
                     {
+                        
                         file.WriteLine(subtask.ToFileString());
                     }
                 }

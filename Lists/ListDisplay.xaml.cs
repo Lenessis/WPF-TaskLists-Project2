@@ -56,9 +56,9 @@ namespace TasksList.list
             //}
             if (dial.ShowDialog() == true)
             {
-
-               // listy.list.Add(new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox));
-                listy.WriteFile();
+                listy.ReadFile();
+               listy.list.Add(new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32( dial.TaskUrgentBox.Text)));
+               listy.WriteFile();
             }
            /* foreach (TaskModel aPart in listss)
             {
@@ -87,7 +87,7 @@ namespace TasksList.list
         {
             if(MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
-                TaskModel item = (TaskModel)treeView.SelectedValue ;
+                TaskModel item = (TaskModel)treeView.SelectedValue;
                 listy.list.Remove(item);
                 item.RemoveTask();
             }
