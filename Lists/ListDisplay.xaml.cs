@@ -35,7 +35,7 @@ namespace TasksList.list
         {
             InitializeComponent();
             //listy = listy.ReadFile();
-            //treeView.ItemsSource = listsTask;
+            treeView.ItemsSource = listy.list;
            // listsOfTasks.ReadFile();
         }
 
@@ -51,8 +51,12 @@ namespace TasksList.list
             //}
             if (dial.ShowDialog() == true)
             {
-                listy.ReadFile();
-               listy.list.Add(new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32( dial.TaskUrgentBox.Text)));
+                //listy.ReadFile();
+                TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32(dial.TaskUrgentBox.Text));
+               listy.list.Add(temp);
+                listy.WriteFile();
+                treeView.ItemsSource = listy.list;
+                treeView.Items.Refresh();
             }
 
         }
