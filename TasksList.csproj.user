@@ -10,9 +10,6 @@
     <Compile Update="Categories\CategoryMainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Lists\ListDisplayPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Lists\ListsMainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,9 +22,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\ListDisplay.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Lists\ListDisplayPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Lists\ListsMainPage.xaml">

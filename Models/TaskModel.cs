@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using TasksList.Models;
 
 namespace TasksList.Models
 {
@@ -47,10 +51,28 @@ namespace TasksList.Models
 
         /* --- METHODS --- */
 
-        public String ToFileString()
+        public string ToFileString()
         {
             string dateFormat = (date.HasValue == true) ? date.ToString() : "";
+            Console.WriteLine(dateFormat);
             return $"{name};{done};{urgentState};{dateFormat};{description};{subtasks.Count}";
+        }
+
+        public void AddNewTask(string name, string desc, DateTime date, int urgent)
+        {
+           // TextWriter tw = new StreamWriter()
+            //TaskModel taskM = new TaskModel();
+            // subtasks.Add(new TaskModel(name, desc,date, urgent));
+        }
+
+        public void RemoveTask()
+        {
+            
+        }
+
+        public void EditTask()
+        {
+
         }
 
     }

@@ -14,11 +14,10 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
+
         
         <Grid Grid.Row="0">
-            
-            <Button Style="{StaticResource BackButtonStyle}">Powrót</Button>
-                       
+            <Button Click="GetBack_Click" Style="{StaticResource BackButtonStyle}">Powrót</Button>
             <Label Name ="ListName"
                 FontSize="44"
                 FontWeight="Bold"
@@ -41,7 +40,7 @@
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding Items}">
                         <StackPanel Orientation="Horizontal">
-                            <CheckBox Content="{Binding Name}"></CheckBox>
+                            <CheckBox Name="SelectedName_CheckBox" Content="{Binding Name}"></CheckBox>
                         </StackPanel>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
@@ -56,14 +55,17 @@
             </Grid.ColumnDefinitions>
             
             <Button Grid.Column="1"
+                    Click="removeTask_Click"
                     Background="#E2593E"
                     Foreground="White"
                     Style="{StaticResource ButtonStyle}">Usuń</Button>
 
             <Button Grid.Column="2"
+                    Click="editTask_click"
                     Style="{StaticResource ButtonStyle}">Edytuj</Button>
 
             <Button Grid.Column="3"
+                    Click="newTask_click"
                     Style="{StaticResource ButtonStyle}">Nowa</Button>
         </Grid>
     </Grid>

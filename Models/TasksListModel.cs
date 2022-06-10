@@ -90,6 +90,7 @@ namespace TasksList.Models
 
         public void ReadFile()
         {
+            MessageBox.Show(name);
             StreamReader file = new StreamReader($"{MainWindow.dataPath}/{category}\\{name}.txt");
             string line;
 
@@ -158,12 +159,13 @@ namespace TasksList.Models
 
         public void WriteFile()
         {
+            
             StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/{category}\\{name}.txt");
-
             foreach (var task in list)
             {
                 file.WriteLine(task.ToFileString());
-                if(task.subtasks.Count>0)
+                MessageBox.Show(task.ToFileString());
+                if (task.subtasks.Count>0)
                 {
                     foreach (var subtask in task.subtasks)
                     {

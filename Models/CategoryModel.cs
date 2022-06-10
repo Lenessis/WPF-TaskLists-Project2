@@ -40,6 +40,7 @@ namespace TasksList.Models
 
         // -- Dodawanie kategorii (folderu) -- //
 
+
         private void AddCategory()
         {
             Directory.CreateDirectory(MainWindow.dataPath + "/" + name);

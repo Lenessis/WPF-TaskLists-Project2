@@ -94,6 +94,8 @@ namespace TasksList.Lists
             TasksListModel temp = (TasksListModel) TasksListListBox.SelectedItem;
             diag.ListName.Content = temp.name;
             diag.CategoryName.Content = temp.category;
+            temp.ReadFile();
+            diag.treeView.ItemsSource = temp.list;
 
             diag.Show();
 
