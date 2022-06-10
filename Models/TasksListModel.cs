@@ -94,16 +94,17 @@ namespace TasksList.Models
             string line;
 
             //do while powinno być i wtedy powinno sprawdzać nulla 
-            
+
 
             // -- dopóki plik będzie mieał linie
+            if ((line = file.ReadLine()) == null)
+            {
+                MessageBox.Show("Plik jest pusty!!!");
+                return;
+            }
             do
             {
-                if ((line = file.ReadLine()) == null)
-                {
-                    MessageBox.Show("Plik jest pusty!!!");
-                    break;
-                }
+                
                 string[] taskInformation = line.Split(";"); // -- rozdzielenie linii średnikami i wpisanie zmiennych do tablicy
                 TaskModel newTask = new TaskModel();
                 //sprawdź Count tablicy stringów task information, jeżeli ma mniej niż 6 to do dupy informacja
