@@ -23,35 +23,24 @@ namespace TasksList.list
     public partial class ListDisplay : Window
     {
 
-        public Collection<TasksListModel> listsTask { get; }// = TasksListModel.GetTasksListsFromData(); // wczytuje wszystkie dane
-
-        //public Collection<TasksList> tasks { get; } = TasksList
-         //TaskModel listsOfTasks = new TaskModel();
-        // public List<TaskModel> listss = new List<TaskModel>();
+        public Collection<TasksListModel> listsTask { get; }
 
         public TasksListModel listy = new TasksListModel();
 
         public ListDisplay()
         {
             InitializeComponent();
-            //listy = listy.ReadFile();
             treeView.ItemsSource = listy.list;
-           // listsOfTasks.ReadFile();
         }
 
         private void newTask_click(object sender, RoutedEventArgs e)
         {
-            //listsOfTasks.ReadFile();
             NewTask dial = new NewTask();
             dial.NewTaskTitle.Content = "Dodaj zadanie";
             dial.NewTaskButton.Content = "Dodaj";
-            // if(dial.TaskUrgentBox.SelectedItem.ToString())
-            // {
-            //    int x = int.Parse(dial.TaskUrgentBox.ToString());
-            //}
+
             if (dial.ShowDialog() == true)
             {
-                //listy.ReadFile();
                 TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32(dial.TaskUrgentBox.Text));
                listy.list.Add(temp);
                 listy.WriteFile();
@@ -63,13 +52,10 @@ namespace TasksList.list
 
         private void editTask_click(object sender, RoutedEventArgs e)
         {
-            //if (treeView >= 0)
-           // {
-                NewTask dial = new NewTask();
+            NewTask dial = new NewTask();
             dial.NewTaskTitle.Content = "Edytuj zadanie";
             dial.NewTaskButton.Content = "Edytuj";
             dial.ShowDialog();
-            //}
         }
 
         private void removeTask_Click(object sender, RoutedEventArgs e)
@@ -80,7 +66,6 @@ namespace TasksList.list
                 listy.list.Remove(item);
                 item.RemoveTask();
             }
-            
 
         }
     }

@@ -14,7 +14,6 @@ namespace TasksList.Models
         public List<TaskModel> list { get; set; }
         public string name { get; set; }
         public CategoryModel category { get; set; } 
-        // -- rezygnujemy z urgent state, bo nie ma go gdzie zapisać i jest bez sensu
 
         /* --- CONSTRUCTORS --- */
 
@@ -55,6 +54,9 @@ namespace TasksList.Models
                     }              
             }
 
+            foreach ( var item in tasksListModels)           
+                item.ReadFile(); // -- czytanie zadań 
+            
             return tasksListModels;
         }
 
@@ -93,25 +95,18 @@ namespace TasksList.Models
             StreamReader file = new StreamReader($"{MainWindow.dataPath}/{category}\\{name}.txt");
             string line;
 
-            //do while powinno być i wtedy powinno sprawdzać nulla 
-
-
-            // -- dopóki plik będzie mieał linie
-            if ((line = file.ReadLine()) == null)
-            {
-                MessageBox.Show("Plik jest pusty!!!");
+            if ((line = file.ReadLine()) == null) // -- jeśli plik jest pusty, to nie można go przeczytać
                 return;
-            }
+
             do
             {
                 
                 string[] taskInformation = line.Split(";"); // -- rozdzielenie linii średnikami i wpisanie zmiennych do tablicy
                 TaskModel newTask = new TaskModel();
-                //sprawdź Count tablicy stringów task information, jeżeli ma mniej niż 6 to do dupy informacja
-                if (taskInformation.Length != 6)
-                {
-                    MessageBox.Show("Błędny format pliku!!!");
-                }
+                
+                if (taskInformation.Length != 6) // -- Jeśli format pliku jest błędny
+                    break;
+                
                 else
                 {
                     newTask.name = taskInformation[0];
@@ -160,9 +155,8 @@ namespace TasksList.Models
                                     Convert.ToInt32(tempDate[5])
                                     );
                             }
-                            //newSubTask.date = subTaskInformation[3].ToString();
+                            
                             newSubTask.description = subTaskInformation[4];
-
                             // -- nie ma tutaj tworzenia kolejnych podzadań
                             newTask.subtasks.Add(newSubTask); // -- dodawanie do listy podzadań w zadaniu głównym
                         }
@@ -177,27 +171,16 @@ namespace TasksList.Models
 
         public void WriteFile()
         {
-            
-            //MessageBox.Show(category);
-           // MessageBox.Show($"{MainWindow.dataPath}/{category}\\{name}.txt");
             StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/{category}\\{name}.txt");
             foreach (var task in list)
-            {   
-               // MessageBox.Show(task.ToFileString());
+            {
                 file.WriteLine(task.ToFileString());
                 
                 if (task.subtasks.Count>0)
-                {
-                    //MessageBox.Show("done");
-                    foreach (var subtask in task.subtasks)
-                    {
-                        
+                    foreach (var subtask in task.subtasks)  
                         file.WriteLine(subtask.ToFileString());
-                    }
-                }
             }
             file.Close();
-
         }
     }
 }
