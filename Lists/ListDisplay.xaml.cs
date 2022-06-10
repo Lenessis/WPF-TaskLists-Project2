@@ -23,13 +23,13 @@ namespace TasksList.list
     public partial class ListDisplay : Window
     {
 
-        public Collection<TasksListModel> listsTask { get; } = TasksListModel.GetTasksListsFromData(); // wczytuje wszystkie dane
+        public Collection<TasksListModel> listsTask { get; }// = TasksListModel.GetTasksListsFromData(); // wczytuje wszystkie dane
 
         //public Collection<TasksList> tasks { get; } = TasksList
          //TaskModel listsOfTasks = new TaskModel();
         // public List<TaskModel> listss = new List<TaskModel>();
 
-        TasksListModel listy = new TasksListModel();
+        public TasksListModel listy = new TasksListModel();
 
         public ListDisplay()
         {
@@ -37,11 +37,6 @@ namespace TasksList.list
             //listy = listy.ReadFile();
             //treeView.ItemsSource = listsTask;
            // listsOfTasks.ReadFile();
-        }
-
-        private void GetBack_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
 
         private void newTask_click(object sender, RoutedEventArgs e)
@@ -58,17 +53,7 @@ namespace TasksList.list
             {
                 listy.ReadFile();
                listy.list.Add(new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32( dial.TaskUrgentBox.Text)));
-               listy.WriteFile();
             }
-           /* foreach (TaskModel aPart in listss)
-            {
-                //string str = aPart.ToFileString();
-                
-            }*/
-            
-            // listss.WriteFile();
-            //   listsOfTasks.AddNewTask(new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, int.Parse(dial.TaskUrgentBox.ToString()));
-            //listsTask.Add(new)
 
         }
 
