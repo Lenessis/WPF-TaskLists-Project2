@@ -41,7 +41,7 @@ namespace TasksList.list
 
             if (dial.ShowDialog() == true)
             {
-                TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, Convert.ToInt32(dial.TaskUrgentBox.Text));
+                TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
                listy.list.Add(temp);
                 listy.WriteFile();
                 treeView.ItemsSource = listy.list;
@@ -55,16 +55,31 @@ namespace TasksList.list
             NewTask dial = new NewTask();
             dial.NewTaskTitle.Content = "Edytuj zadanie";
             dial.NewTaskButton.Content = "Edytuj";
-            dial.ShowDialog();
+
+            TaskModel item = (TaskModel)treeView.SelectedItem;
+
+            dial.TaskNameBox.Text = item.name;
+            dial.TaskDescriptionBox.Text = item.description;
+
+            if (dial.ShowDialog() == true)
+            {
+                listy.list[treeView.SelectedIndex].EditTask(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
+                listy.WriteFile();
+                treeView.ItemsSource = listy.list;
+                treeView.Items.Refresh();
+            }
         }
 
         private void removeTask_Click(object sender, RoutedEventArgs e)
         {
             if(MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
-                TaskModel item = (TaskModel)treeView.SelectedValue;
+                TaskModel item = (TaskModel)treeView.SelectedItem;
                 listy.list.Remove(item);
-                item.RemoveTask();
+                listy.WriteFile();
+                treeView.ItemsSource = listy.list;
+                treeView.Items.Refresh();
+                //item.RemoveTask();
             }
 
         }

@@ -32,32 +32,30 @@
                    HorizontalContentAlignment="Center"
                    Foreground="White">Kategoria</Label>
 
-        <TreeView Grid.Row="2"
-                    Background="#18181c" 
-                      Name="treeView"
-                      Margin="5">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding list}">
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox  Name="SelectedName_CheckBox">
-                                <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Content="{Binding name}" Foreground="White"></Label>
-                                <Label Grid.Column="1" Content="{Binding date}" Foreground="White"></Label>
-                                <Label Grid.Column="2" Content="{Binding urgentState}" Foreground="White"></Label>
-                                <Label Grid.Column="3" Content="{Binding description}" Foreground="White"></Label>
-                            </Grid>
-                                
-                            </CheckBox>
-                        </StackPanel>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+        <ListBox Grid.Row="2" 
+                  Style="{StaticResource ListboxStyle}"
+                 Name="treeView">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox  Name="SelectedName_CheckBox" Selector.IsSelected="True">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Content="{Binding name}" Foreground="White"></Label>
+                                            <Label Grid.Column="1" Content="{Binding date}" Foreground="White"></Label>
+                                            <Label Grid.Column="2" Content="{Binding urgentState}" Foreground="White"></Label>
+                                            <Label Grid.Column="3" Content="{Binding description}" Foreground="White"></Label>
+                                        </Grid>
+
+                                    </CheckBox>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>

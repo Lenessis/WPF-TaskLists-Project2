@@ -111,7 +111,7 @@ namespace TasksList.Models
                 {
                     newTask.name = taskInformation[0];
                     newTask.done = Convert.ToBoolean(taskInformation[1]);
-                    newTask.urgentState = Convert.ToInt32(taskInformation[2]);
+                    newTask.urgentState = taskInformation[2];
 
                     if (taskInformation[3] != "") // -- jesli data została ustawiona
                     {
@@ -140,7 +140,7 @@ namespace TasksList.Models
 
                             newSubTask.name = subTaskInformation[0];
                             newSubTask.done = Convert.ToBoolean(subTaskInformation[1]);
-                            newSubTask.urgentState = Convert.ToInt32(subTaskInformation[2]);
+                            newSubTask.urgentState = subTaskInformation[2];
 
                             if (subTaskInformation[3] != "")
                             {

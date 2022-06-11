@@ -62,9 +62,9 @@
                           Margin=" 4px"
                           SelectedValuePath="Content"
                           Background="LightGray">
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>niski</ComboBoxItem>
+                    <ComboBoxItem>średni</ComboBoxItem>
+                    <ComboBoxItem>wysoki</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>

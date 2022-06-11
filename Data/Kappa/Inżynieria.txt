@@ -1,6 +1,3 @@
-Test zadanie;False;1;;Opis sobie zadanka;0
-zsdas;False;2;10.06.2022 00:00:00;dasda;0
-Test zadanie;False;1;;Opis sobie zadanka;0
-Test zadanie;False;1;;Opis sobie zadanka;0
-KAPAPAPAPPA;False;1;10.06.2022 00:00:00;dsad;0
-Kappunia;False;2;10.06.2022 00:00:00;fjkhjashukasuiiosa;0
+dd;False;średni;11.06.2022 00:00:00;jan;0
+dddd;False;2;11.06.2022 00:00:00;dddddd;0
+ssss;False;wysoki;11.06.2022 00:00:00;dsad;0

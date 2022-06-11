@@ -12,7 +12,7 @@ namespace TasksList.Models
         public string name { get; set; }
         public string description { get; set; }
         public DateTime? date { get; set; }
-        public int urgentState { get; set; }
+        public string urgentState { get; set; }
         public bool done { get; set; }
         public List<TaskModel> subtasks { get; set; }
 
@@ -30,7 +30,7 @@ namespace TasksList.Models
             subtasks = new List<TaskModel>();
         }
 
-        public TaskModel(string name, string desc, int urgent) // -- bez daty
+        public TaskModel(string name, string desc, string urgent) // -- bez daty
         {
             this.name = name;
             this.description = desc;
@@ -39,7 +39,7 @@ namespace TasksList.Models
             subtasks = new List<TaskModel>();
         }
 
-        public TaskModel (string name, string desc, DateTime date, int urgent) // -- z data
+        public TaskModel (string name, string desc, DateTime date, string urgent) // -- z data
         {
             this.name = name;
             this.description = desc;
@@ -58,7 +58,7 @@ namespace TasksList.Models
             return $"{name};{done};{urgentState};{dateFormat};{description};{subtasks.Count}";
         }
 
-        public void AddNewTask(string name, string desc, DateTime date, int urgent)
+        public void AddNewTask(string name, string desc, DateTime date, string urgent)
         {
            // TextWriter tw = new StreamWriter()
             //TaskModel taskM = new TaskModel();
@@ -70,8 +70,12 @@ namespace TasksList.Models
             
         }
 
-        public void EditTask()
+        public void EditTask(string newName, string newDescription, DateTime? newDateChose, string newUrgentState)
         {
+            name = newName;
+            description = newDescription;
+            date = newDateChose;
+            urgentState = newUrgentState;
 
         }
 
