@@ -65,11 +65,6 @@ namespace TasksList.Models
             // subtasks.Add(new TaskModel(name, desc,date, urgent));
         }
 
-        public void RemoveTask()
-        {
-            
-        }
-
         public void EditTask(string newName, string newDescription, DateTime? newDateChose, string newUrgentState)
         {
             name = newName;
@@ -77,6 +72,11 @@ namespace TasksList.Models
             date = newDateChose;
             urgentState = newUrgentState;
 
+        }
+
+        public void EditStateTask(bool newDone)
+        {
+            done = newDone;
         }
 
     }

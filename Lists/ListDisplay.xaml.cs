@@ -83,5 +83,31 @@ namespace TasksList.list
             }
 
         }
+
+        private void CheckBoxChanged(object sender, RoutedEventArgs e)
+        {
+            treeView.ItemsSource = listy.list;
+            //TaskModel item = (TaskModel)treeView.SelectedItem;
+            if(treeView.SelectedItem != null)
+            {
+                listy.list[treeView.SelectedIndex].EditStateTask(true);
+            }
+            listy.WriteFile();
+            treeView.ItemsSource = listy.list;
+            treeView.Items.Refresh();
+
+        }
+
+        private void CheckBoxUnChanged(object sender, RoutedEventArgs e)
+        {
+            treeView.ItemsSource = listy.list;
+            if (treeView.SelectedItem != null)
+            {
+                listy.list[treeView.SelectedIndex].EditStateTask(false);
+            }
+            listy.WriteFile();
+            treeView.ItemsSource = listy.list;
+            treeView.Items.Refresh();
+        }
     }
 }

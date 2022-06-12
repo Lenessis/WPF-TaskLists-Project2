@@ -37,7 +37,7 @@
                  Name="treeView">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <CheckBox  Name="SelectedName_CheckBox" Selector.IsSelected="True">
+                                    <CheckBox  Name="SelectedName_CheckBox" IsChecked="{Binding done}" Selector.IsSelected="True" Checked="CheckBoxChanged" Unchecked="CheckBoxUnChanged">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto"/>

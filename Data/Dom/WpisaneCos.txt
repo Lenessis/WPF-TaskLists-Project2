@@ -1,0 +1,6 @@
+reter;False;średni;12.06.2022 00:00:00;eterter;0
+df;False;średni;12.06.2022 00:00:00;df;0
+dfsf;False;wysoki;12.06.2022 00:00:00;sdfsdfsd;0
+dsf;False;średni;12.06.2022 00:00:00;sdf;0
+asds;False;średni;12.06.2022 00:00:00;asdas;0
+sdfsd;False;średni;12.06.2022 00:00:00;dfsfdsf;0

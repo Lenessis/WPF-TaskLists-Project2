@@ -113,6 +113,8 @@ namespace TasksList.Models
                     newTask.done = Convert.ToBoolean(taskInformation[1]);
                     newTask.urgentState = taskInformation[2];
 
+
+
                     if (taskInformation[3] != "") // -- jesli data została ustawiona
                     {
                         // -- trzeba ją przeczytać i przekształcić na typ DateTime
@@ -174,6 +176,8 @@ namespace TasksList.Models
             StreamWriter file = new StreamWriter($"{MainWindow.dataPath}/{category}\\{name}.txt");
             foreach (var task in list)
             {
+
+                
                 file.WriteLine(task.ToFileString());
                 
                 if (task.subtasks.Count>0)

@@ -1,3 +1,7 @@
-dd;False;średni;11.06.2022 00:00:00;jan;0
-dddd;False;2;11.06.2022 00:00:00;dddddd;0
-ssss;False;wysoki;11.06.2022 00:00:00;dsad;0
+dd;True;średni;11.06.2022 00:00:00;jan;0
+dfdf;False;wysoki;12.06.2022 00:00:00;dffdf;0
+ddd;False;wysoki;12.06.2022 00:00:00;dddd;0
+d;False;wysoki;12.06.2022 00:00:00;d;0
+dfgdf;False;średni;12.06.2022 00:00:00;fdgfg;0
+sdss;True;niski;12.06.2022 00:00:00;adsds;0
+sadas;True;średni;12.06.2022 00:00:00;sadasda;0
