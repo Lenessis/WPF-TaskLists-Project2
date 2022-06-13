@@ -1,3 +1,8 @@
-name;false;1;;description;0
-name;false;2;;description;0
-name;false;3;;description;0
+-- zzz;False;wysoki;13.06.2022 00:00:00;zzzz;0
+-- zz;False;średni;13.06.2022 00:00:00;zzzz;0
+-- zxzx;False;średni;13.06.2022 00:00:00;zxz;0
+-- sdsd;False;niski;13.06.2022 00:00:00;sdsadas;0
+-- zzz;False;średni;13.06.2022 00:00:00;zzzzz;0
+---> zzz;False;średni;13.06.2022 00:00:00;zxzx;0
+---> sadasdasd;False;średni;13.06.2022 00:00:00;sadasdasd;0
+---> zzz;False;wysoki;13.06.2022 00:00:00;zzzzz;0

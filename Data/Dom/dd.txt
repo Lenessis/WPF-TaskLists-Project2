@@ -1,0 +1,3 @@
+zxczxcz;False;niski;13.06.2022 00:00:00;czcx;0
+sa;True;średni;13.06.2022 00:00:00;as;1
+---> ssss;False;wysoki;13.06.2022 00:00:00;sss;0

@@ -1,7 +1,17 @@
-dd;True;średni;11.06.2022 00:00:00;jan;0
-dfdf;False;wysoki;12.06.2022 00:00:00;dffdf;0
-ddd;False;wysoki;12.06.2022 00:00:00;dddd;0
-d;False;wysoki;12.06.2022 00:00:00;d;0
-dfgdf;False;średni;12.06.2022 00:00:00;fdgfg;0
-sdss;True;niski;12.06.2022 00:00:00;adsds;0
-sadas;True;średni;12.06.2022 00:00:00;sadasda;0
+kk;False;wysoki;13.06.2022 00:00:00;kk;4
+---------------ll;False;wysoki;13.06.2022 00:00:00;ll;0
+---------kk;False;średni;13.06.2022 00:00:00;ggg;0
+------fff;False;średni;13.06.2022 00:00:00;fff;0
+---vv;False;wysoki;13.06.2022 00:00:00;vv;0
+------------ll;False;wysoki;13.06.2022 00:00:00;ll;0
+------kk;False;średni;13.06.2022 00:00:00;ggg;0
+---fff;False;średni;13.06.2022 00:00:00;fff;0
+---------ll;False;wysoki;13.06.2022 00:00:00;ll;0
+---kk;False;średni;13.06.2022 00:00:00;ggg;0
+------ll;False;wysoki;13.06.2022 00:00:00;ll;0
+---ll;False;wysoki;13.06.2022 00:00:00;ll;0
+kk;False;średni;13.06.2022 00:00:00;ggg;0
+fff;False;średni;13.06.2022 00:00:00;fff;1
+---vvv;False;wysoki;13.06.2022 00:00:00;vvv;0
+-- vv;False;wysoki;13.06.2022 00:00:00;vv;0
+-- vvv;False;wysoki;13.06.2022 00:00:00;vvv;0
