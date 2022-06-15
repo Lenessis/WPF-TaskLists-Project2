@@ -313,6 +313,16 @@
            TargetType="ListBox">
         <Setter Property="Background" Value="#18181c"/>
         <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="ListboxTasksStyle"
+           TargetType="ListBox">
+        <Setter Property="Background" Value="#18181c"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="15"/>
     </Style>
 
     <!-- // Buttony // -->
@@ -350,12 +360,37 @@
 
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#2e2e36"/>
+        <Setter Property="Background" Value="#d49b28"/>
         <Setter Property="Width" Value="500"/>
         <Setter Property="MinHeight" Value="100"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
 
+    </Style>
 
+    <!--  // ListMainPage // -->
+    
+    <Style x:Key="ListItemStackPanelStyle"
+           TargetType="StackPanel">
+
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="150"/>
+        <Setter Property="Background" Value="#288dd1"/>
+        <Setter Property="Margin" Value="10"/>
+
+    </Style>
+
+    <Style x:Key="ListItemTextBlockStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="10"/>
 
     </Style>
 

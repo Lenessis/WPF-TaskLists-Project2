@@ -29,10 +29,15 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock  Text="{Binding name}" FontSize="16" Foreground="White"/>
-                                <TextBlock  Text="{Binding category}" FontSize="16" Foreground="White"/>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Vertical" Style="{StaticResource ListItemStackPanelStyle}">
+                                <TextBlock  Text="{Binding name}" 
+                                            Style="{StaticResource ListItemTextBlockStyle}"
+                                            FontSize="24"/>
+                                <TextBlock  Text="{Binding category}" 
+                                            Style="{StaticResource ListItemTextBlockStyle}"
+                                            FontWeight="Bold"
+                                            FontSize="18"/>
                                 
                             </StackPanel>
                         </StackPanel>

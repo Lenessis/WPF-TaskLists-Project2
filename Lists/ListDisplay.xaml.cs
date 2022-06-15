@@ -134,7 +134,7 @@ namespace TasksList.list
                 TaskModel item = (TaskModel)treeView.SelectedItem;
                 if (dial.ShowDialog() == true)
                 {
-                    listy.list[treeView.SelectedIndex].AddNewSubtask("---> " + dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
+                    listy.list[treeView.SelectedIndex].AddNewSubtask("--------> " + dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
                     //TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
                     //listy.list.Add(temp);
                     listy.WriteFile();

@@ -1,0 +1,9 @@
+Posprzątać kuchnię;False;wysoki;15.06.2022 00:00:00;Posprzątać kuchnię do południa;0
+--------> umyć zlew;False;średni;15.06.2022 00:00:00;.;0
+--------> umyć kuchenkę;False;wysoki;15.06.2022 00:00:00;nie używać cifa;0
+--------> rozmrozić schabowe;False;wysoki;15.06.2022 00:00:00;2 szuflada w zamrażarce;0
+--------> umyć podłogę;False;średni;15.06.2022 00:00:00;1 zakrętka płynu;0
+Iść do sklepu;False;wysoki;15.06.2022 00:00:00;Kupić rzeczy na obiad;0
+--------> Ziemniaczki;False;niski;15.06.2022 00:00:00;1kg;0
+--------> Koperek;False;niski;15.06.2022 00:00:00;Do ziemniaczków, świeży;0
+Odkurzyć dom;False;wysoki;15.06.2022 00:00:00;.;0

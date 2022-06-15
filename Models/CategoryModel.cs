@@ -57,7 +57,7 @@ namespace TasksList.Models
         public void DeleteCategory()
         {
             //if(Directory.Exists(MainWindow.dataPath + "/" + name) && Directory.GetFiles(MainWindow.dataPath + "/" + name).ToList()==null)
-                Directory.Delete(MainWindow.dataPath + "/" + name);
+                Directory.Delete(MainWindow.dataPath + "/" + name, true);
         }
 
         public void EditCategory(string newName)

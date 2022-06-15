@@ -1,0 +1,7 @@
+Kupić farbę;False;średni;01.07.2022 00:00:00;ok 5 litrów;0
+--------> Zmierzyć pokój;True;niski;15.06.2022 00:00:00;Wyszło 2mx5m;0
+--------> Obliczenia;False;wysoki;15.06.2022 00:00:00;Obliczyć ile farby bedzie potrzebne;0
+Kupić folie;True;wysoki;15.06.2022 00:00:00;malarską;0
+Zamówic meble;False;wysoki;15.06.2022 00:00:00;.;0
+--------> Lustro;True;średni;15.06.2022 00:00:00;.;0
+--------> Szafka;False;niski;15.06.2022 00:00:00;.;0
