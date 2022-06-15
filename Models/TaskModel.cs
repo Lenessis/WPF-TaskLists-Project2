@@ -14,6 +14,7 @@ namespace TasksList.Models
         public DateTime? date { get; set; }
         public string urgentState { get; set; }
         public bool done { get; set; }
+        public int countSub { get; set; }
         public List<TaskModel> subtasks { get; set; }
 
         /* --- urgentState ---
@@ -28,6 +29,7 @@ namespace TasksList.Models
         {
             this.done = false;
             subtasks = new List<TaskModel>();
+            this.countSub = subtasks.Count;
         }
 
         public TaskModel(string name, string desc, string urgent) // -- bez daty
@@ -37,6 +39,7 @@ namespace TasksList.Models
             this.urgentState = urgent;
             this.done = false;
             subtasks = new List<TaskModel>();
+            this.countSub = subtasks.Count;
         }
 
         public TaskModel (string name, string desc, DateTime date, string urgent) // -- z data
@@ -47,6 +50,8 @@ namespace TasksList.Models
             this.urgentState = urgent;
             this.done = false;
             subtasks = new List<TaskModel>();
+            this.countSub = subtasks.Count;
+
         }
 
         /* --- METHODS --- */
@@ -54,8 +59,16 @@ namespace TasksList.Models
         public string ToFileString()
         {
             string dateFormat = (date.HasValue == true) ? date.ToString() : "";
+            countSub = subtasks.Count;
             Console.WriteLine(dateFormat);
-            return $"{name};{done};{urgentState};{dateFormat};{description};{subtasks.Count}";
+            return $"{name};{done};{urgentState};{dateFormat};{description};{countSub}";
+        }
+        public string ToFileStringSubtask()
+        {
+            string dateFormat = (date.HasValue == true) ? date.ToString() : "";
+            countSub = subtasks.Count;
+            Console.WriteLine(dateFormat);
+            return $"{name};{done};{urgentState};{dateFormat};{description};{countSub}";
         }
 
         public void AddNewTask(string name, string desc, DateTime date, string urgent)
@@ -65,11 +78,6 @@ namespace TasksList.Models
             // subtasks.Add(new TaskModel(name, desc,date, urgent));
         }
 
-        public void RemoveTask()
-        {
-            
-        }
-
         public void EditTask(string newName, string newDescription, DateTime? newDateChose, string newUrgentState)
         {
             name = newName;
@@ -77,6 +85,23 @@ namespace TasksList.Models
             date = newDateChose;
             urgentState = newUrgentState;
 
+        }
+
+        public void EditStateTask(bool newDone)
+        {
+            done = newDone;
+        }
+
+        public void AddNewSubtask(string newName, string newDescription, DateTime? newDateChose, string newUrgentState)
+        {
+            countSub +=1;
+            TaskModel taskSub = new TaskModel();
+            taskSub.name = newName;
+            taskSub.description = newDescription;
+            taskSub.date = newDateChose;
+            taskSub.urgentState = newUrgentState;
+            taskSub.countSub = 0;
+            subtasks.Add(taskSub);
         }
 
     }
