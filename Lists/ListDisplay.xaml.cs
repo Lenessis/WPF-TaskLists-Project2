@@ -58,28 +58,40 @@ namespace TasksList.list
 
             TaskModel item = (TaskModel)treeView.SelectedItem;
 
-            dial.TaskNameBox.Text = item.name;
-            dial.TaskDescriptionBox.Text = item.description;
-
-            if (dial.ShowDialog() == true)
+            if ((TaskModel)treeView.SelectedItem != null)
             {
-                listy.list[treeView.SelectedIndex].EditTask(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
-                listy.WriteFile();
-                treeView.ItemsSource = listy.list;
-                treeView.Items.Refresh();
+                dial.TaskNameBox.Text = item.name;
+                dial.TaskDescriptionBox.Text = item.description;
+
+                if (dial.ShowDialog() == true)
+                {
+                    listy.list[treeView.SelectedIndex].EditTask(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
+                    listy.WriteFile();
+                    treeView.ItemsSource = listy.list;
+                    treeView.Items.Refresh();
+                }
             }
         }
 
         private void removeTask_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            if ((TaskModel)treeView.SelectedItem != null)
             {
-                TaskModel item = (TaskModel)treeView.SelectedItem;
-                listy.list.Remove(item);
-                listy.WriteFile();
-                treeView.ItemsSource = listy.list;
-                treeView.Items.Refresh();
-                //item.RemoveTask();
+                if (MessageBox.Show("Czy na pewno chcesz usunąć element?", "Usuń", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+                {
+                    TaskModel item = (TaskModel)treeView.SelectedItem;
+                    if (item.countSub > 0)
+                    {
+                        MessageBox.Show("W pierwszej kolejności musisz usunąć podzania.");
+                    }
+                    else
+                    {
+                        listy.list.Remove(item);
+                        listy.WriteFile();
+                        treeView.ItemsSource = listy.list;
+                        treeView.Items.Refresh();
+                    }
+                }
             }
 
         }
@@ -108,6 +120,31 @@ namespace TasksList.list
             listy.WriteFile();
             treeView.ItemsSource = listy.list;
             treeView.Items.Refresh();
+        }
+
+        private void newSubtask_click(object sender, RoutedEventArgs e)
+        {
+            if ((TaskModel)treeView.SelectedItem != null)
+            {
+                NewTask dial = new NewTask();
+                dial.NewTaskTitle.Content = "Dodaj podzadanie";
+                dial.NewTaskButton.Content = "Dodaj";
+
+                treeView.ItemsSource = listy.list;
+                TaskModel item = (TaskModel)treeView.SelectedItem;
+                if (dial.ShowDialog() == true)
+                {
+                    listy.list[treeView.SelectedIndex].AddNewSubtask("---> " + dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
+                    //TaskModel temp = new TaskModel(dial.TaskNameBox.Text, dial.TaskDescriptionBox.Text, dial.TaskDateChose.DisplayDate, dial.TaskUrgentBox.Text);
+                    //listy.list.Add(temp);
+                    listy.WriteFile();
+                    listy.list.Clear();
+                    listy.ReadFile();
+
+                    treeView.ItemsSource = listy.list;
+                    treeView.Items.Refresh();
+                }
+            }
         }
     }
 }
