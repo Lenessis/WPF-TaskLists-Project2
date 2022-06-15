@@ -18,9 +18,6 @@ using TasksList.Models;
 
 namespace TasksList.Lists
 {
-    /// <summary>
-    /// Logika interakcji dla klasy ListsMainPage.xaml
-    /// </summary>
     public partial class ListsMainPage : Page
     {
         public Collection<TasksListModel> tasksLists { get; } = TasksListModel.GetTasksListsFromData();
@@ -33,28 +30,12 @@ namespace TasksList.Lists
 
         private void AddTaskList_ClickButton(object sender, RoutedEventArgs e)
         {
-            NewList dial = new NewList();
-            dial.Title = "Dodaj listę";
+            NewList diag = new NewList();
+            diag.HeaderTitle.Content = "Dodaj listę";
+            diag.ListAcceptButton.Content = "Dodaj";
 
-            if(dial.ShowDialog()==true)
-            {
-                tasksLists.Add(new TasksListModel(dial.nameOfList.Text));
-
-            }
-        }
-
-        private void ChangeTasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (TasksListListBox.SelectedIndex >= 0)
-            {
-                RemoveButton.IsEnabled = true;
-                EditButton.IsEnabled = true;
-            }
-            else
-            {
-                RemoveButton.IsEnabled = false;
-                EditButton.IsEnabled = false;
-            }
+            if (diag.ShowDialog()==true)
+                tasksLists.Add(new TasksListModel(diag.nameOfList.Text, (CategoryModel) diag.CategoryComboBox.SelectedItem));
 
         }
 
@@ -63,16 +44,19 @@ namespace TasksList.Lists
             if (TasksListListBox.SelectedIndex >= 0)
             {
                 NewList diag = new NewList();
-                diag.Title = "Edytuj listę";
+                diag.HeaderTitle.Content = "Edytuj listę";
+                diag.ListAcceptButton.Content = "Edytuj";
 
-                TasksListModel temp = new TasksListModel();
-                temp = (TasksListModel)TasksListListBox.SelectedItem;
+                TasksListModel temp = (TasksListModel)TasksListListBox.SelectedItem;
 
                 diag.nameOfList.Text = temp.name;
+                /*diag.CategoryComboBox.SelectedItem = temp.category;
+                  diag.CategoryComboBox.SelectedValue = temp.category.ToString();*/
+                diag.CategoryComboBox.SelectedIndex = 0; // -- inaczej jak po indeksie nie chce działać, nawet nie chce wyciągnąć indeksu elementu
 
                 if (diag.ShowDialog() == true)
                 {
-                    tasksLists[TasksListListBox.SelectedIndex].EditTaskList(diag.nameOfList.Text);
+                    tasksLists[TasksListListBox.SelectedIndex].EditTaskList(diag.nameOfList.Text, (CategoryModel) diag.CategoryComboBox.SelectedItem);
                     TasksListListBox.Items.Refresh();
                 }
             }
@@ -86,6 +70,48 @@ namespace TasksList.Lists
                 tasksLists.Remove(item);
                 item.DeleteTaskList();
             }
+        }
+
+        private void ChangeTasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TasksListListBox.SelectedIndex >= 0)
+            {
+                RemoveButton.IsEnabled = true;
+                EditButton.IsEnabled = true;
+                SelectListBtn.IsEnabled = true;
+            }
+            else
+            {
+                RemoveButton.IsEnabled = false;
+                EditButton.IsEnabled = false;
+                SelectListBtn.IsEnabled = false;
+            }           
+        }
+
+        private void DisplayList_Click(object sender, RoutedEventArgs e)
+        {
+            ListDisplay diag = new ListDisplay();
+            TasksListModel temp = (TasksListModel) TasksListListBox.SelectedItem;
+            diag.ListName.Content = temp.name;
+            diag.CategoryName.Content = temp.category;
+            /*if(temp.list.Count == 0)
+            {
+                temp.ReadFile();
+            }*/
+            
+            diag.listy = temp;
+            diag.treeView.ItemsSource = diag.listy.list;
+
+            
+
+            if (diag.ShowDialog() == true)
+            {
+                temp = diag.listy;
+                TasksListListBox.SelectedItem = temp;
+                temp.WriteFile();
+
+            }
+
         }
     }
 }

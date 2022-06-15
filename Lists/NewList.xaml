@@ -16,12 +16,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#2e2e36">
             <Grid Grid.Row="0">
-                <Label FontSize="24"
-                   FontWeight="Bold"
-                   HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"
-                   FontStyle="Italic"
-                   Foreground="#FFFFFF">Dodaj/edytuj listę </Label>
+                <Label Name="HeaderTitle"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       FontStyle="Italic"
+                       Foreground="#FFFFFF">Dodaj/edytuj listę </Label>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
@@ -54,13 +55,15 @@
             <Grid Grid.Column="1">
                 <ComboBox Grid.Row="0"
                           Grid.Column="1"
-                          Background="LightGray"
+                          x:Name="CategoryComboBox"
                           SelectionChanged="ComboBox_SelectionChanged"
+                          Background="LightGray"
                           Margin=" 4px"
-                          SelectedValuePath="Content">
-                    <ComboBoxItem>Opcja</ComboBoxItem>
+                          SelectedValuePath="{Binding Path=categories, Mode=TwoWay}"
+                          DisplayMemberPath="name">
+                    <!--<ComboBoxItem>Opcja</ComboBoxItem>
                     <ComboBoxItem>Opcja2</ComboBoxItem>
-                    <ComboBoxItem>Opcja3</ComboBoxItem>
+                    <ComboBoxItem>Opcja3</ComboBoxItem>-->
                 </ComboBox>
             </Grid>
         </Grid>
@@ -80,10 +83,11 @@
             </Grid>
             <Grid Grid.Column="2">
                 <Image Source="Images/add.png" Stretch="None"/>
-                <Button FontSize="18"
+                <Button Name="ListAcceptButton"
+                        Click="Add_ClickButton"
+                        FontSize="18"
                         Margin="4"
-                        FontStyle="Italic"
-                        Click="Add_ClickButton">Dodaj</Button>
+                        FontStyle="Italic">Dodaj</Button>
             </Grid>
         </Grid>
     </Grid>

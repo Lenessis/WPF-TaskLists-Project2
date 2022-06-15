@@ -19,6 +19,7 @@
             <Grid Grid.Row="0"
                   Background="#2e2e36">
                 <Label FontSize="24"
+                   Name="NewTaskTitle"
                    FontWeight="Bold"
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center"
@@ -38,6 +39,7 @@
             </Grid>
             <Grid Grid.Column="1">
                 <TextBox Margin="4"
+                         Name="TaskNameBox"
                          VerticalContentAlignment="Center"
                          Background="LightGray"></TextBox>
             </Grid>
@@ -55,13 +57,14 @@
             <Grid Grid.Column="1">
                 <ComboBox Grid.Row="0"
                           Grid.Column="1"
+                          x:Name="TaskUrgentBox"
                           SelectionChanged="ComboBox_SelectionChanged"
                           Margin=" 4px"
                           SelectedValuePath="Content"
                           Background="LightGray">
-                    <ComboBoxItem>Opcja</ComboBoxItem>
-                    <ComboBoxItem>Opcja2</ComboBoxItem>
-                    <ComboBoxItem>Opcja3</ComboBoxItem>
+                    <ComboBoxItem>niski</ComboBoxItem>
+                    <ComboBoxItem>średni</ComboBoxItem>
+                    <ComboBoxItem>wysoki</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>
@@ -77,6 +80,7 @@
             </Grid>
             <Grid Grid.Column="1">
                 <DatePicker Margin="4 5 4 5"
+                            Name="TaskDateChose"
                             Background="LightGray"
                          VerticalContentAlignment="Center"></DatePicker>
             </Grid>
@@ -92,6 +96,7 @@
             </Grid>
             <Grid Grid.Column="1">
                 <TextBox Margin="4"
+                         Name="TaskDescriptionBox"
                          Background="LightGray"
                          VerticalContentAlignment="Center"></TextBox>
             </Grid>
@@ -105,6 +110,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Button FontSize="18"
+                        Click="CancelAddingTask_Click"
                         Margin="4"
                         Background="#E2593E"
                         Foreground="White"
@@ -112,6 +118,8 @@
             </Grid>
             <Grid Grid.Column="2">
                 <Button FontSize="18"
+                        Name="NewTaskButton"
+                        Click="AddNewTask_Click"
                         Margin="4"
                         FontStyle="Italic">Dodaj</Button>
             </Grid>

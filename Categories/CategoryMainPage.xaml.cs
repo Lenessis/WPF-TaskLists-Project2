@@ -24,7 +24,6 @@ namespace TasksList.Categories
 
     public partial class CategoryMainPage : Page
     {   
-       // public List<CategoryModel> categories; // lista kategorii
         public Collection<CategoryModel> categories { get; } = CategoryModel.GetCatecoriesFromData(); // lista kategorii
 
         public CategoryMainPage()
@@ -36,7 +35,6 @@ namespace TasksList.Categories
         private void AddCategory_ClickButton(object sender, RoutedEventArgs e)
         {
             Add_EditCategory diag = new Add_EditCategory();
-            diag.Title = "Dodaj kategorię";
             diag.WindowTitle.Content = "Dodaj kategorię";
             diag.ConfirmButton.Content = "Dodaj";
 
@@ -49,12 +47,10 @@ namespace TasksList.Categories
             if(CategoryListBox.SelectedIndex >= 0)
             {
                 Add_EditCategory diag = new Add_EditCategory();
-                diag.Title = "Edytuj kategorię";
                 diag.WindowTitle.Content = "Edytuj kategorię";
                 diag.ConfirmButton.Content = "Edytuj";
 
-                CategoryModel temp = new CategoryModel();
-                temp = (CategoryModel)CategoryListBox.SelectedItem;
+                CategoryModel temp = (CategoryModel)CategoryListBox.SelectedItem;
 
                 diag.CategoryNameBox.Text = temp.name;
 
